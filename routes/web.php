@@ -46,3 +46,7 @@ Route::get("/hello-world", function () {
     return view("folderhello.world", ["name" => "Pambudi"]);
 });
 
+// compile views : php artisan view:cache
+// disimpan di folder storage/framework/views
+// menghapus compile views : php artisan view:clear
+
