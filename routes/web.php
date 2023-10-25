@@ -31,3 +31,13 @@ Route::redirect('/me', '/ydp', 301);
 Route::fallback(function () {
     return "404 by Yoga Dimas Pambudi";
 });
+
+// MENAMPILKAN VIEW
+
+// view(uri, template, variabel data dalam bentuk array)
+Route::view("/hello", "hello", ["name" => "Yoga"]);
+
+// get(uri, callback)
+Route::get("/hello-again", function () {
+    return view("hello", ["name" => "Dimas"]);
+});
