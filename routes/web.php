@@ -41,3 +41,8 @@ Route::view("/hello", "hello", ["name" => "Yoga"]);
 Route::get("/hello-again", function () {
     return view("hello", ["name" => "Dimas"]);
 });
+
+Route::get("/hello-world", function () {
+    return view("folderhello.world", ["name" => "Pambudi"]);
+});
+
