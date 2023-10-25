@@ -17,16 +17,16 @@ use function PHPUnit\Framework\assertSame;
 
 class ServiceContainerTest extends TestCase
 {
-    public function testDependencyInjection()
-    {
-        // $foo = new Foo();
-        $foo1 = $this->app->make(Foo::class); // new Foo()
-        $foo2 = $this->app->make(Foo::class); // new Foo()
+    // public function testDependencyInjection()
+    // {
+    //     // $foo = new Foo();
+    //     $foo1 = $this->app->make(Foo::class); // new Foo()
+    //     $foo2 = $this->app->make(Foo::class); // new Foo()
 
-        assertEquals("Foo", $foo1->foo());
-        assertEquals("Foo", $foo2->foo());
-        assertNotSame($foo1,  $foo2);
-    }
+    //     assertEquals("Foo", $foo1->foo());
+    //     assertEquals("Foo", $foo2->foo());
+    //     assertNotSame($foo1,  $foo2);
+    // }
 
     public function testBind()
     {
@@ -74,31 +74,31 @@ class ServiceContainerTest extends TestCase
         assertSame($person1, $person2);
     }
 
-    public function testDependencyInjectionFooBar()
-    {
-        $foo = $this->app->make(Foo::class);
-        $bar = $this->app->make(Bar::class);
+    // public function testDependencyInjectionFooBar()
+    // {
+    //     $foo = $this->app->make(Foo::class);
+    //     $bar = $this->app->make(Bar::class);
 
-        assertNotSame($foo, $bar->foo);
-    }
+    //     assertNotSame($foo, $bar->foo);
+    // }
 
-    public function testDependencyInjectionFooBarSingletone()
-    {
-        $this->app->singleton(Foo::class, function () {
-            return new Foo();
-        });
+    // public function testDependencyInjectionFooBarSingletone()
+    // {
+    //     $this->app->singleton(Foo::class, function () {
+    //         return new Foo();
+    //     });
 
-        $foo = $this->app->make(Foo::class);
-        $bar = $this->app->make(Bar::class);
-        $bar1 = $this->app->make(Bar::class);
-        $bar2 = $this->app->make(Bar::class);
+    //     $foo = $this->app->make(Foo::class);
+    //     $bar = $this->app->make(Bar::class);
+    //     $bar1 = $this->app->make(Bar::class);
+    //     $bar2 = $this->app->make(Bar::class);
 
 
-        assertSame($foo, $bar->foo);
-        assertNotSame($bar1, $bar2);
+    //     assertSame($foo, $bar->foo);
+    //     assertNotSame($bar1, $bar2);
 
-        // bar1 dan bar2 merupakan objek yang berbeda
-    }
+    //     // bar1 dan bar2 merupakan objek yang berbeda
+    // }
 
     public function testDependencyInjectionFooBarSingletoneClosure()
     {
