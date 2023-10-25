@@ -16,3 +16,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get("/ydp", function () {
+    return "Hello Yoga Dimas Pambudi";
+});
+
+// ketika path url /me maka dialihkan ke url path /ydp
+Route::redirect('/me', '/ydp', 301);
+
+// melihat semua routing
+// php artisan route:list
+
+// Fallback Route -modifikasi (tidak ada halaman 404)
+Route::fallback(function () {
+    return "404 by Yoga Dimas Pambudi";
+});
