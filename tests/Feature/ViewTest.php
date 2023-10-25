@@ -17,8 +17,18 @@ class ViewTest extends TestCase
             ->assertSeeText("Hello Dimas");
     }
 
-    public function testNested() {
+    public function testNested()
+    {
         $this->get("/hello-world")
             ->assertSeeText("Hello Pambudi");
+    }
+
+    public function testViewWithoutRoute()
+    {
+        $this->view("hello", ["name" => "yeo"])
+            ->assertSeeText("Hello yeo");
+
+        $this->view("folderhello.world", ["name" => "tri"])
+            ->assertSeeText("Hello tri");
     }
 }
