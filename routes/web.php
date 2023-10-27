@@ -53,22 +53,22 @@ Route::get("/hello-world", function () {
 // ROUTE PARAMETER
 Route::get("/products/{id}", function ($productId) {
     return "Product $productId";
-});
+})->name("product.detail");
 
 Route::get('/products/{product}/items/{item}', function ($productId, $itemId) {
     return "Product $productId, Item $itemId";
-});
+})->name("product.item.detail");
 
 // parameter harus angka 
 Route::get("/categories/{id}", function (string $categoryId) {
     return "Categories : " . $categoryId;
-})->where("id", "[0-9]+");
+})->where("id", "[0-9]+")->name("category.detail");
 
 // optional route parameter (?)
 // harus ditambahkan default value
 Route::get("/users/{id?}", function (string $userId = "404 by Yoga Dimas Pambudi") {
     return "Users : " . $userId;
-});
+})->name("user.detail");
 
 // Routing Conflict : route yang akan di eksekusi yang paling pertama dideklarasikan
 // Route::get("/conflict/{name}", function (string $name) {
@@ -82,4 +82,26 @@ Route::get("/conflict/yoga", function () {
 Route::get("/conflict/{name}", function (string $name) {
     return "Conflict " . $name;
 });
+
+
+// NAMED ROUTE
+/**
+ * Diatas kita tambahkan named route pada route yang telah kita buat sebelumnnya
+ * Di Laravel, kita bisa menamai Route dengan sebuah nama
+ * Hal ini bagus ketika kita misal nanti butuh mendapatkan informasi tentang route tersebut, 
+ * misal route url nya, atau melakukan redirect ke route
+ * Dengan menambahkan nama di Route nya, kita bisa menggunakan nama route saja, 
+ * tanpa khawatir URL nya akan diubah
+ * Untuk menambahkan nama di route, kita cukup gunakan function name()
+ */
+
+ // Menggunaan Named Route
+ Route::get("/produk/{id}", function ($id){
+    $link = route("product.detail", ["id" => $id]);
+    return "Link $link";
+ });
+
+ Route::get("/produk-redirect/{id}", function ($id){
+    return redirect()->route("product.detail", ["id" => $id]);
+ });
 
