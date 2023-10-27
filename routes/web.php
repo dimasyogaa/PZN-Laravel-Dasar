@@ -108,5 +108,7 @@ Route::get("/conflict/{name}", function (string $name) {
 
  // CONTROLLER
  // Route::get("url", [classController::class, "namaFunctionDidalamController"])
- Route::get("/controller/hello", [HelloController::class, "hello"]);
+//  Route::get("/controller/hello", [HelloController::class, "hello"]);
+
+Route::get("/controller/hello/{name}", [HelloController::class, "hello"]);
 

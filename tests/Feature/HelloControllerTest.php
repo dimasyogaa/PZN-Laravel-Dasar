@@ -8,7 +8,9 @@ use Tests\TestCase;
 
 class HelloControllerTest extends TestCase
 {
-    public function testHello() {
-        $this->get("/controller/hello")->assertSeeText('Hello World');
+    public function testHello()
+    {
+        // $this->get("/controller/hello")->assertSeeText('Hello World');
+        $this->get("/controller/hello/Yoga")->assertSeeText('Halo Yoga');
     }
 }

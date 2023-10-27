@@ -9,7 +9,19 @@ use Illuminate\Http\Request;
 // php artiasan make:controller HelloController
 class HelloController extends Controller
 {
-    public function hello(): string {
-        return "Hello World";
+
+    private HelloService $helloService;
+
+
+    // sebelumnya Hello Service telah didaftarkan di service container melalui service provider
+    // sehingga otomatis diinject dependencynya oleh laravel dari service container
+    public function __construct(HelloService $helloService)
+    {
+        $this->helloService = $helloService;
+    }
+
+    public function hello(string $name): string
+    {
+        return $this->helloService->hello($name);
     }
 }
