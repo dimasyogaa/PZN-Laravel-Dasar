@@ -78,7 +78,7 @@ Route::get("/users/{id?}", function (string $userId = "404 by Yoga Dimas Pambudi
 
 Route::get("/conflict/yoga", function () {
     return "Conflict Yoga Dimas Pambudi";
-}); 
+});
 
 Route::get("/conflict/{name}", function (string $name) {
     return "Conflict " . $name;
@@ -96,19 +96,23 @@ Route::get("/conflict/{name}", function (string $name) {
  * Untuk menambahkan nama di route, kita cukup gunakan function name()
  */
 
- // Menggunaan Named Route
- Route::get("/produk/{id}", function ($id){
+// Menggunaan Named Route
+Route::get("/produk/{id}", function ($id) {
     $link = route("product.detail", ["id" => $id]);
     return "Link $link";
- });
+});
 
- Route::get("/produk-redirect/{id}", function ($id){
+Route::get("/produk-redirect/{id}", function ($id) {
     return redirect()->route("product.detail", ["id" => $id]);
- });
+});
 
- // CONTROLLER
- // Route::get("url", [classController::class, "namaFunctionDidalamController"])
+// CONTROLLER
+// Route::get("url", [classController::class, "namaFunctionDidalamController"])
 //  Route::get("/controller/hello", [HelloController::class, "hello"]);
 
+// REQUEST
+Route::get("/controller/hello/request", [HelloController::class, "request"]);
+
 Route::get("/controller/hello/{name}", [HelloController::class, "hello"]);
+
 
