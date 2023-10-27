@@ -50,3 +50,36 @@ Route::get("/hello-world", function () {
 // disimpan di folder storage/framework/views
 // menghapus compile views : php artisan view:clear
 
+// ROUTE PARAMETER
+Route::get("/products/{id}", function ($productId) {
+    return "Product $productId";
+});
+
+Route::get('/products/{product}/items/{item}', function ($productId, $itemId) {
+    return "Product $productId, Item $itemId";
+});
+
+// parameter harus angka 
+Route::get("/categories/{id}", function (string $categoryId) {
+    return "Categories : " . $categoryId;
+})->where("id", "[0-9]+");
+
+// optional route parameter (?)
+// harus ditambahkan default value
+Route::get("/users/{id?}", function (string $userId = "404 by Yoga Dimas Pambudi") {
+    return "Users : " . $userId;
+});
+
+// Routing Conflict : route yang akan di eksekusi yang paling pertama dideklarasikan
+// Route::get("/conflict/{name}", function (string $name) {
+//     return "Conflict " . $name;
+// }); 
+
+Route::get("/conflict/yoga", function () {
+    return "Conflict Yoga Dimas Pambudi";
+}); 
+
+Route::get("/conflict/{name}", function (string $name) {
+    return "Conflict " . $name;
+});
+
