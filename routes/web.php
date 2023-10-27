@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HelloController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -104,4 +105,8 @@ Route::get("/conflict/{name}", function (string $name) {
  Route::get("/produk-redirect/{id}", function ($id){
     return redirect()->route("product.detail", ["id" => $id]);
  });
+
+ // CONTROLLER
+ // Route::get("url", [classController::class, "namaFunctionDidalamController"])
+ Route::get("/controller/hello", [HelloController::class, "hello"]);
 
