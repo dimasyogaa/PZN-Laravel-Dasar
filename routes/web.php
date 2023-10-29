@@ -120,3 +120,6 @@ Route::get("/controller/hello/{name}", [HelloController::class, "hello"]);
 // REQUEST INPUT
 Route::get("/input/hello", [InputController::class, "hello"]);
 Route::post("/input/hello", [InputController::class, "hello"]);
+
+// nested input
+Route::post("/input/hello/first", [InputController::class, "helloFirst"]);

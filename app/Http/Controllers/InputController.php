@@ -20,8 +20,15 @@ class InputController extends Controller
 {
 
     // mengambil input
-    public function hello(Request $request): string {
+    public function hello(Request $request): string
+    {
         $name = $request->input("name");
         return "Hello $name";
+    }
+
+    public function helloFirst(Request $request): string
+    {
+        $firstName = $request->input("name.first");
+        return  "Hello " . $firstName;
     }
 }
