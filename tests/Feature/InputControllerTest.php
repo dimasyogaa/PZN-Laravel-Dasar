@@ -16,7 +16,7 @@ class InputControllerTest extends TestCase
         $this->get("/input/hello?name=Yoga")->assertSeeText("Hello Yoga");
 
         // dikirim melalui body
-        $this->post("/input/hello", ["name" => "Dimas"])->assertSeeText("Hello Dimas");;
+        $this->post("/input/hello", ["name" => "Dimas"])->assertSeeText("Hello Dimas");
     }
 
     public function testNestedInput()
@@ -29,5 +29,36 @@ class InputControllerTest extends TestCase
                 ]
             ]
         )->assertSeeText("Hello Yoga");
+    }
+
+    public function testInputAll()
+    {
+        $this->post("/input/hello/all", [
+            "name" => [
+                "first" => "Yoga",
+                "last" => "Dimas"
+            ]
+        ])
+            ->assertSeeText("name")
+            ->assertSeeText("first")
+            ->assertSeeText("Yoga")
+            ->assertSeeText("last")
+            ->assertSeeText("Dimas");
+    }
+
+    public function testArrayInput()
+    {
+        $this->post("/input/hello/array", [
+            "products" => [
+                [
+                    "name" => "Apple Mac Book Pro",
+                    "price" => 30000000
+                ],
+                [
+                    "name" => "Samsung Galaxy S",
+                    "price" => 15000000
+                ]
+            ]
+        ])->assertSeeText("Apple Mac Book Pro")->assertSeeText("Samsung Galaxy S");
     }
 }

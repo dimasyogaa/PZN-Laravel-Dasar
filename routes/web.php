@@ -123,3 +123,9 @@ Route::post("/input/hello", [InputController::class, "hello"]);
 
 // nested input
 Route::post("/input/hello/first", [InputController::class, "helloFirst"]);
+
+// mengambil semua input
+Route::post("/input/hello/all", [InputController::class, "helloAll"]);
+
+// mengambil array input
+Route::post("/input/hello/array", [InputController::class, "helloArray"]);
