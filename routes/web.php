@@ -129,3 +129,6 @@ Route::post("/input/hello/all", [InputController::class, "helloAll"]);
 
 // mengambil array input
 Route::post("/input/hello/array", [InputController::class, "helloArray"]);
+
+// input type
+Route::post("/input/type", [InputController::class, "inputType"]);

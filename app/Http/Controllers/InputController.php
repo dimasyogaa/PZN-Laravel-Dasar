@@ -66,5 +66,20 @@ class InputController extends Controller
 
      * 
      */
-   
+
+
+    // INPUT TYPE - konversi langsung ke tipe data yang diinginkan
+    public function inputType(Request $request)
+    {
+        $name = $request->input("name");
+        $married = $request->boolean("married");
+        $birthDate = $request->date("birth_date", "Y-m-d");
+
+        return json_encode([
+            "name" => $name,
+            "married" => $married,
+            "birth_date" => $birthDate->format("Y-m-d")
+        ]);
+    }
+
 }
