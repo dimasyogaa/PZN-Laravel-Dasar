@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\ContohMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -21,6 +22,7 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+        // \App\Http\Middleware\ContohMiddleware::class //jika mau middleware ini global
     ];
 
     /**
@@ -43,6 +45,9 @@ class Kernel extends HttpKernel
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
+        'pzn-codimas' => [
+            ContohMiddleware::class
+        ]
     ];
 
     /**
@@ -63,5 +68,6 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'contoh' =>  \App\Http\Middleware\ContohMiddleware::class //alias
     ];
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\HelloController;
 use App\Http\Controllers\InputController;
 use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\ResponseController;
+use App\Http\Middleware\ContohMiddleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -176,3 +177,18 @@ Route::get('/redirect/action', [\App\Http\Controllers\RedirectController::class,
 
 // Redirect To External Domain
 Route::get('/redirect/away', [\App\Http\Controllers\RedirectController::class, 'redirectAway']);
+
+// MIDDLEWARE
+Route::get("/middleware/api", function() {
+    return "OK";
+})->middleware([ContohMiddleware::class]);
+
+// menggunakan alias 
+// Route::get("/middleware/api", function() {
+//     return "OK";
+// })->middleware("contoh");
+
+// middleware grup
+Route::get("/middleware/group", function() {
+    return "GROUP";
+})->middleware("pzn-codimas"); // semua middleware pada grup ini akan digunakan pada route ini
