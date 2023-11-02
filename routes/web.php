@@ -3,6 +3,7 @@
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\HelloController;
 use App\Http\Controllers\InputController;
+use App\Http\Controllers\ResponseController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -141,3 +142,6 @@ Route::post("/input/filter/merge", [InputController::class, "filterMerge"]);
 
 // File Uplaod
 Route::post("/file/upload", [FileController::class, "upload"]);
+
+// Response
+Route::get("/response/hello", [ResponseController::class, "response"]);
