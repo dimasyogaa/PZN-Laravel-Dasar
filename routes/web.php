@@ -179,16 +179,26 @@ Route::get('/redirect/action', [\App\Http\Controllers\RedirectController::class,
 Route::get('/redirect/away', [\App\Http\Controllers\RedirectController::class, 'redirectAway']);
 
 // MIDDLEWARE
-Route::get("/middleware/api", function() {
+Route::get("/middleware1/api", function() {
     return "OK";
 })->middleware([ContohMiddleware::class]);
 
 // menggunakan alias 
 // Route::get("/middleware/api", function() {
 //     return "OK";
-// })->middleware("contoh");
+// })->middleware(["contoh"]);
 
 // middleware grup
+Route::get("/middleware1/group", function() {
+    return "GROUP";
+})->middleware(["pzn-codimas"]); // semua middleware pada grup ini akan digunakan pada route ini
+
+// middleware parameter
+// ["alias:argumen1,argumen2"]
+Route::get("/middleware/api", function() {
+    return "OK";
+})->middleware(["contoh2:PZN-Codimas,401"]);
+
 Route::get("/middleware/group", function() {
     return "GROUP";
-})->middleware("pzn-codimas"); // semua middleware pada grup ini akan digunakan pada route ini
+})->middleware(["pzn-codimas-2"]); 

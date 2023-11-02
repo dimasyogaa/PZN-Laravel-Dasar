@@ -10,7 +10,7 @@ class ContohMiddleWareTest extends TestCase
 {
     public function testMiddlewareInvalid()
     {
-        $this->get("/middleware/api")
+        $this->get("/middleware1/api")
             ->assertStatus(401)
             ->assertSeeText("Access Denied");
     }
@@ -18,7 +18,7 @@ class ContohMiddleWareTest extends TestCase
     public function testMiddlewareValid()
     {
         $this->withHeader("X-API-KEY", "PZN-Codimas")
-            ->get("middleware/api")
+            ->get("middleware1/api")
             ->assertStatus(200)
             ->assertSeeText("OK");
     }
@@ -27,7 +27,7 @@ class ContohMiddleWareTest extends TestCase
     // GROUP
     public function testMiddlewareInvalidGroup()
     {
-        $this->get("/middleware/group")
+        $this->get("/middleware1/group")
             ->assertStatus(401)
             ->assertSeeText("Access Denied");
     }
@@ -35,7 +35,7 @@ class ContohMiddleWareTest extends TestCase
     public function testMiddlewareValidGroup()
     {
         $this->withHeader("X-API-KEY", "PZN-Codimas")
-            ->get("middleware/group")
+            ->get("middleware1/group")
             ->assertStatus(200)
             ->assertSeeText("GROUP");
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\Contoh2Middleware;
 use App\Http\Middleware\ContohMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -47,6 +48,9 @@ class Kernel extends HttpKernel
         ],
         'pzn-codimas' => [
             ContohMiddleware::class
+        ],
+        'pzn-codimas-2' => [
+            "contoh2:PZN-Codimas,401"
         ]
     ];
 
@@ -68,6 +72,7 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'contoh' =>  \App\Http\Middleware\ContohMiddleware::class //alias
+        'contoh' =>  \App\Http\Middleware\ContohMiddleware::class, //alias
+        'contoh2' => \App\Http\Middleware\Contoh2Middleware::class
     ];
 }
