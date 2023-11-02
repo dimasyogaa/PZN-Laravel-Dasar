@@ -201,13 +201,23 @@ Route::get("/middleware1/group", function () {
 
 // middleware parameter
 // ["alias:argumen1,argumen2"]
-Route::get("/middleware/api", function () {
-    return "OK";
-})->middleware(["contoh2:PZN-Codimas,401"]);
+// Route::get("/middleware/api", function () {
+//     return "OK";
+// })->middleware(["contoh2:PZN-Codimas,401"]);
 
-Route::get("/middleware/group", function () {
-    return "GROUP";
-})->middleware(["pzn-codimas-2"]);
+// Route::get("/middleware/group", function () {
+//     return "GROUP";
+// })->middleware(["pzn-codimas-2"]);
+
+// Route Middleware
+Route::middleware(["contoh2:PZN-Codimas,401"])->group(function () {
+    Route::get("/middleware/api", function () {
+        return "OK";
+    });
+    Route::get("/middleware/group", function () {
+        return "GROUP";
+    });
+});
 
 // CSRF
 Route::get('/form', [\App\Http\Controllers\FormController::class, 'form']);
