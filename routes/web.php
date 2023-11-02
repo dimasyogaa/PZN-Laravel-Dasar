@@ -214,11 +214,21 @@ Route::get("/middleware1/group", function () {
 // })->middleware(["pzn-codimas-2"]);
 
 // Route Middleware
-Route::middleware(["contoh2:PZN-Codimas,401"])->group(function () {
-    Route::get("/middleware/api", function () {
+// Route::middleware(["contoh2:PZN-Codimas,401"])->group(function () {
+//     Route::get("/middleware/api", function () {
+//         return "OK";
+//     });
+//     Route::get("/middleware/group", function () {
+//         return "GROUP";
+//     });
+// });
+
+// Multiple/Combine Route Group 
+Route::middleware(["contoh2:PZN-Codimas,401"])->prefix("/middleware")->group(function () {
+    Route::get("/api", function () {
         return "OK";
     });
-    Route::get("/middleware/group", function () {
+    Route::get("/group", function () {
         return "GROUP";
     });
 });
