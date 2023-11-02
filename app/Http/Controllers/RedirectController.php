@@ -30,5 +30,11 @@ class RedirectController extends Controller
         return "Hello $name";
     }
 
-    
+    // Redirect To Controller Action
+    public function redirectAction(): RedirectResponse
+    {
+        return redirect()->action([RedirectController::class, 'redirectHello'], [
+            'name' => 'Dimas'
+        ]);
+    }
 }
