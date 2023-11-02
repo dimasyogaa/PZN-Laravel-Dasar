@@ -148,3 +148,9 @@ Route::get("/response/hello", [ResponseController::class, "response"]);
 
 // response header
 Route::get("/response/header", [ResponseController::class, "header"]);
+
+// response type
+Route::get("/response/type/view", [ResponseController::class, "responseView"]);
+Route::get("/response/type/json", [ResponseController::class, "responseJson"]);
+Route::get("/response/type/file", [ResponseController::class, "responseFile"]);
+Route::get("/response/type/download", [ResponseController::class, "responseDownload"]);

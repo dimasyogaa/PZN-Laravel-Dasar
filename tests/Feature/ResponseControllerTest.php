@@ -22,4 +22,27 @@ class ResponseControllerTest extends TestCase
             ->assertHeader("Author", "Codimas Production")
             ->assertHeader("App", "Belajar Laravel");
     }
+
+    public function testView()
+    {
+        $this->get("/response/type/view")->assertSeeText("Hello Codimas Production");
+    }
+
+    public function testJson()
+    {
+        $this->get("/response/type/json")->assertJson([
+            "firstName" => "Yoga",
+            "lastName" => "Pambudi"
+        ]);
+    }
+
+    public function testFile()
+    {
+        $this->get("/response/type/file")->assertHeader("Content-Type", "image/png");
+    }
+
+    public function testDownload()
+    {
+        $this->get("/response/type/download")->assertDownload("logo yd 1080p.png");
+    }
 }

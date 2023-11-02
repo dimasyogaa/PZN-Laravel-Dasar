@@ -12,7 +12,7 @@ class FileController extends Controller
         $picture = $request->file("picture");
 
         // disimpan di dalam folder picture
-        $picture->storePubliclyAs("picture", $picture->getClientOriginalName(), "public");
+        $picture->storePubliclyAs("pictures", $picture->getClientOriginalName(), "public");
 
 
         return "OK " . $picture->getClientOriginalName();
