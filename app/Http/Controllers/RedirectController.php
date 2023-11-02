@@ -16,4 +16,19 @@ class RedirectController extends Controller
     {
         return "Redirect To";
     }
+
+    // Redirect To Named Routes
+    public function redirectName(): RedirectResponse
+    {
+        return redirect()->route('redirect-hello', [
+            "name" => "Yoga"
+        ]);
+    }
+
+    public function redirectHello(string $name): string
+    {
+        return "Hello $name";
+    }
+
+    
 }
