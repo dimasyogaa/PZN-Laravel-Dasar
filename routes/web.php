@@ -165,9 +165,13 @@ Route::prefix("/response/type")->group(function () {
 
 
 // COOKIE
-Route::get("/cookie/set", [CookieController::class, "createCookie"]);
-Route::get("/cookie/get", [CookieController::class, "getCookie"]);
-Route::get("/cookie/clear", [CookieController::class, "clearCookie"]);
+// Route Controller
+Route::controller(CookieController::class)->group(function () {
+    Route::get("/cookie/set", "createCookie");
+    Route::get("/cookie/get", "getCookie");
+    Route::get("/cookie/clear", "clearCookie");
+});
+
 
 // REDIRECT
 Route::get("/redirect/from", [RedirectController::class, "redirectFrom"]);
