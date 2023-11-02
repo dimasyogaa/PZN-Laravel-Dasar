@@ -11,4 +11,21 @@ class ResponseController extends Controller
     {
         return response("hello response");
     }
+
+    // Response Header
+    public function header(Request $request): Response
+    {
+
+        $body = [
+            "firstName" => "Yoga",
+            "lastName" => "Pambudi"
+        ];
+
+        return response(json_encode($body), 200)
+            ->header("Content-Type", "application/json")
+            ->withHeaders([
+                "Author" => "Codimas Production",
+                "App" => "Belajar Laravel"
+            ]);
+    }
 }

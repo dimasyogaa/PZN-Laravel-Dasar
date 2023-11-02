@@ -143,5 +143,8 @@ Route::post("/input/filter/merge", [InputController::class, "filterMerge"]);
 // File Uplaod
 Route::post("/file/upload", [FileController::class, "upload"]);
 
-// Response
+// RESPONSE
 Route::get("/response/hello", [ResponseController::class, "response"]);
+
+// response header
+Route::get("/response/header", [ResponseController::class, "header"]);
