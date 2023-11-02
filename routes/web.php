@@ -173,3 +173,6 @@ Route::get('/redirect/name/{name}', [\App\Http\Controllers\RedirectController::c
 
 // Redirect To Controller Action
 Route::get('/redirect/action', [\App\Http\Controllers\RedirectController::class, 'redirectAction']);
+
+// Redirect To External Domain
+Route::get('/redirect/away', [\App\Http\Controllers\RedirectController::class, 'redirectAway']);

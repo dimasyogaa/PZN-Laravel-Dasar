@@ -37,4 +37,10 @@ class RedirectController extends Controller
             'name' => 'Dimas'
         ]);
     }
+
+    // Redirect To External Domain
+    public function redirectAway(): RedirectResponse
+    {
+        return redirect()->away("https://github.com/Yogadimas");
+    }
 }
