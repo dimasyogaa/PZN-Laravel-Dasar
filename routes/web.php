@@ -7,6 +7,7 @@ use App\Http\Controllers\InputController;
 use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\ResponseController;
 use App\Http\Middleware\ContohMiddleware;
+use App\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -144,7 +145,8 @@ Route::post("/input/filter/except", [InputController::class, "filterExcept"]);
 Route::post("/input/filter/merge", [InputController::class, "filterMerge"]);
 
 // File Uplaod
-Route::post("/file/upload", [FileController::class, "upload"]);
+Route::post("/file/upload", [FileController::class, "upload"])
+    ->withoutMiddleware([VerifyCsrfToken::class]);
 
 // RESPONSE
 Route::get("/response/hello", [ResponseController::class, "response"]);
@@ -179,7 +181,7 @@ Route::get('/redirect/action', [\App\Http\Controllers\RedirectController::class,
 Route::get('/redirect/away', [\App\Http\Controllers\RedirectController::class, 'redirectAway']);
 
 // MIDDLEWARE
-Route::get("/middleware1/api", function() {
+Route::get("/middleware1/api", function () {
     return "OK";
 })->middleware([ContohMiddleware::class]);
 
@@ -189,16 +191,16 @@ Route::get("/middleware1/api", function() {
 // })->middleware(["contoh"]);
 
 // middleware grup
-Route::get("/middleware1/group", function() {
+Route::get("/middleware1/group", function () {
     return "GROUP";
 })->middleware(["pzn-codimas"]); // semua middleware pada grup ini akan digunakan pada route ini
 
 // middleware parameter
 // ["alias:argumen1,argumen2"]
-Route::get("/middleware/api", function() {
+Route::get("/middleware/api", function () {
     return "OK";
 })->middleware(["contoh2:PZN-Codimas,401"]);
 
-Route::get("/middleware/group", function() {
+Route::get("/middleware/group", function () {
     return "GROUP";
-})->middleware(["pzn-codimas-2"]); 
+})->middleware(["pzn-codimas-2"]);
