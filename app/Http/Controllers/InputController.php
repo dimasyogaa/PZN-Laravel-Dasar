@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Dotenv\Util\Str;
 use Illuminate\Http\Request;
 
 /** Request Input
@@ -82,4 +83,29 @@ class InputController extends Controller
         ]);
     }
 
+    // FILTER REQUEST INPUT
+    public function filterOnly(Request $request): string
+    {
+        $name = $request->only(["name.first", "name.last"]);
+        return json_encode($name);
+    }
+
+    public function filterExcept(Request $request): string
+    {
+        $name = $request->except(["admin"]);
+        return json_encode($name);
+    }
+
+
+    /**
+     * Kadang-kadang kita ingin menambahkan default input value ketika input tersebut tidak dikirim di request
+     * Kita bisa menggunakan method merge(array) untuk menambah input ke request, dan jika ada key yang sama, otomatis akan diganti
+     * Atau mergeIfMissing(array) untuk menambah input ke request, dan jika input dengan kay yang sama sudah ada, maka akan dibatalkan
+     */
+    public function filterMerge(Request $request): string
+    {
+        $request->merge(["admin" => false]);
+        $user = $request->input();
+        return json_encode($user);
+    }
 }

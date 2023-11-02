@@ -62,14 +62,50 @@ class InputControllerTest extends TestCase
         ])->assertSeeText("Apple Mac Book Pro")->assertSeeText("Samsung Galaxy S");
     }
 
-    public function testinputType() {
+    public function testinputType()
+    {
         $this->post("/input/type", [
             "name" => "Dimas",
             "married" => "false",
             "birth_date" => "1990-10-10"
         ])
-        ->assertSeeText("Dimas")
-        ->assertSeeText("false")
-        ->assertSeeText("1990-10-10");
+            ->assertSeeText("Dimas")
+            ->assertSeeText("false")
+            ->assertSeeText("1990-10-10");
+    }
+
+    public function testFilterOnly()
+    {
+        $this->post("/input/filter/only", [
+            "name" => [
+                "first" => "Yoga",
+                "middle" => "Dimas",
+                "last" => "Pambudi"
+            ]
+        ])->assertSeeText("Yoga")
+            ->assertSeeText("Pambudi")
+            ->assertDontSeeText("Dimas");
+    }
+
+    public function testFilterExcept()
+    {
+        $this->post("/input/filter/except", [
+            "username" => "Yoga",
+            "admin" => "true",
+            "password" => "rahasia"
+        ])->assertSeeText("Yoga")
+            ->assertSeeText("rahasia")
+            ->assertDontSeeText("admin");
+    }
+
+    public function testFilterMergeInput()
+    {
+        $this->post("/input/filter/merge", [
+            "username" => "Khannedy",
+            "admin" => "true",
+            "password" => "rahasia"
+        ])->assertSeeText("Khannedy")
+            ->assertSeeText("rahasia")
+            ->assertSeeText("false");
     }
 }
