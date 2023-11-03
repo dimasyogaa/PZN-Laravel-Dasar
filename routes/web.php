@@ -9,6 +9,7 @@ use App\Http\Controllers\ResponseController;
 use App\Http\Middleware\ContohMiddleware;
 use App\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\URL;
 
 /*
 |--------------------------------------------------------------------------
@@ -182,6 +183,19 @@ Route::get('/redirect/name', [\App\Http\Controllers\RedirectController::class, '
 Route::get('/redirect/name/{name}', [\App\Http\Controllers\RedirectController::class, 'redirectHello'])
     ->name('redirect-hello');
 
+// URL Generation - Named Route
+Route::get("/url/named", function () {
+
+    // cara 1
+    // return route("redirect-hello", ["name" => "Dimas"]);
+
+    // cara2
+    // return url()->route("redirect-hello", ["name" => "Dimas"]);
+
+    // cara 3
+    return URL::route("redirect-hello", ["name" => "Dimas"]);
+});
+
 // Redirect To Controller Action
 Route::get('/redirect/action', [\App\Http\Controllers\RedirectController::class, 'redirectAction']);
 
@@ -236,3 +250,15 @@ Route::middleware(["contoh2:PZN-Codimas,401"])->prefix("/middleware")->group(fun
 // CSRF
 Route::get('/form', [\App\Http\Controllers\FormController::class, 'form']);
 Route::post('/form', [\App\Http\Controllers\FormController::class, 'submitForm']);
+
+// URl Generation - Controller Action
+Route::get("/url/action", function () {
+     // return action([\App\Http\Controllers\FormController::class, 'form'], []);
+    // return url()->action([\App\Http\Controllers\FormController::class, 'form'], []);
+    return \Illuminate\Support\Facades\URL::action([\App\Http\Controllers\FormController::class, 'form'], []);
+});
+
+// URL GENERATION
+Route::get("/url/current", function () {
+    return URL::full();
+});
