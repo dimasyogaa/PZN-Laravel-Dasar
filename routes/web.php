@@ -6,6 +6,7 @@ use App\Http\Controllers\HelloController;
 use App\Http\Controllers\InputController;
 use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\ResponseController;
+use App\Http\Controllers\SessionController;
 use App\Http\Middleware\ContohMiddleware;
 use App\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Support\Facades\Route;
@@ -253,7 +254,7 @@ Route::post('/form', [\App\Http\Controllers\FormController::class, 'submitForm']
 
 // URl Generation - Controller Action
 Route::get("/url/action", function () {
-     // return action([\App\Http\Controllers\FormController::class, 'form'], []);
+    // return action([\App\Http\Controllers\FormController::class, 'form'], []);
     // return url()->action([\App\Http\Controllers\FormController::class, 'form'], []);
     return \Illuminate\Support\Facades\URL::action([\App\Http\Controllers\FormController::class, 'form'], []);
 });
@@ -262,3 +263,8 @@ Route::get("/url/action", function () {
 Route::get("/url/current", function () {
     return URL::full();
 });
+
+
+// SESSION
+Route::get("/session/create", [SessionController::class, "createSession"]);
+Route::get("/session/get", [SessionController::class, "getSession"]);
