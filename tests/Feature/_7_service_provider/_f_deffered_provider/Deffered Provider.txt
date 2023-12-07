@@ -1,0 +1,25 @@
+Deferred Provider
+● Secara default semua Service Provider akan di load oleh Laravel, baik itu kita butuhkan atau tidak
+● Laravel memiliki fitur bernama Deferred Provider, dimana kita bisa menandai sebuah Service
+Provider agar tidak di load jika tidak dibutuhkan dependency nya
+● Kita bisa menandai Service Provider kita dengan implement interface DeferrableProvider, lalu
+implement method provides() yang memberi tahu tipe dependency apa saja yang terdapat di
+Service Provider ini
+● Dengan fitur ini, Service Provider hanya akan di load ketika memang dependency nya dibutuhkan
+● Setiap ada request baru, maka Servive Provider yang sudah Deffered tidak akan di load jika memang
+tidak dibutuhkan
+
+Note : 
+fitur deffered ini bisa saja tidak berfungsi(tetap dimuat meskipun tidak dipanggil) karena laravel menggunakan cache service provider di bootstrap/services.php sehingga bisa saja service provider ini masih di eager yaitu service provider akan dimuat meskipun tidak dipanggil
+sedangkan harapan kita berada di deffered,yaitu service provider ini dimuat ketika dipanggil,jadi ketika tidak dipanggil, tidak dimuat
+
+oleh karena itu hapus dulu cache service nya dengan cara 
+php artisan clear-compiled
+
+perintah diatas tidak hanya menghapus cache service provider tapi semua cache
+
+INGAT!, 
+- jika di unit/integration testing, pasti akan dimuat, baik itu dibutuhkan maupun tidak dibutuhkan
+- jika dijalankan php artisan serve(live server), hanya akan dimuat ketika ada yang membutuhkan dependency di serviceprovider ini
+
+jadi deferred ini berfungsi di lingkungan production live server

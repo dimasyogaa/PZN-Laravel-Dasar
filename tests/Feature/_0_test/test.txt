@@ -1,0 +1,8 @@
+membuat test :
+- integration test (butuh fitur laravel) : php artisan make:test namaTest
+- unit test : php artisan make:test namaTest --unit
+
+menjalankan test :
+1. semua : php artisan test
+2. spesifik : php artisan test --filter namaTest
+

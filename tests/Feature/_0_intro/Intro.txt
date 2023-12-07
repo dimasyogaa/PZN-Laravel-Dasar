@@ -1,0 +1,9 @@
+Berikut file dan folder yang digunakan pada tutorial seri ini
+app :
+    - Data
+    - Providers
+    - Services
+
+Config :
+    - app.php
+        - "provider" = []

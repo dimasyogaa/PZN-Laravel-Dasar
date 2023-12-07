@@ -1,0 +1,8 @@
+Membuat Service Provider
+● Untuk membuat Service Provider, kita bisa memanfaatkan file artisan untuk melakukan auto
+generate file nya
+● Kita bisa menggunakan perintah :
+
+php artisan make:provider NamaServiceProvider
+
+file berada di App/Providers/_7_service_provider/FooBarServiceProvider.php

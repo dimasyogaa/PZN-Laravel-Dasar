@@ -176,7 +176,12 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        App\Providers\FooBarServiceProvider::class
+
+        // _7_service_provider
+        App\Providers\_7_service_provider\_b_registrasi_dependency\BFooBarServiceProvider::class,
+        App\Providers\_7_service_provider\_e_binding_singletons_properties\EHelloServiceServiceProvider::class,
+        App\Providers\_7_service_provider\_f_deffered_provider\FDefferedServiceProvider::class,
+        App\Providers\_7_service_provider\_f_deffered_provider\FNoDefferedServiceProvider::class
 
     ],
 

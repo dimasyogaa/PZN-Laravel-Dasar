@@ -1,0 +1,24 @@
+Configuration Cache 
+● Saat kita membuat terlalu banyak file konfigurasi, lama-lama maka akan membuat proses baca
+konfigurasi menjadi lambat karena Laravel harus membaca file setiap kali kita mengambil
+konfigurasi
+● Pada saat proses development, hal ini mungkin bukan masalah, namun jika sudah masuk ke
+production, maka ini bisa memperlambat performa aplikasi Laravel kita
+● Laravel memiliki fitur untuk meng-cache data konfigurasi yang kita buat menjadi satu file sehingga
+proses membacanya lebih cepat karena datanya langsung di load saat aplikasi berjalan
+
+
+MEMBUAT CONFIGURATION CACHE - biasanya dilakukan ketika sudah fase production
+● Untuk membuat configuration cache, kita bisa gunakan perintah :
+- php artisan config:cache
+
+-- file config cache nya berada di folder bootstrap/cache/config.php
+
+MENGHAPUS CONFIGURATION CACHE
+● Ketika file cache sudah dibuat, jika kita menambah konfigurasi di file php yang terdapat di folder
+config, maka config tersebut tidak akan bisa diakses
+● Hal ini karena Laravel akan selalu menggunakan configuration cache jika ada, oleh karena itu kita
+bisa buat ulang cache nya, atau jika ingin menghapus cache nya, kita bisa gunakan perintah :
+- php artisan config:clear
+
+

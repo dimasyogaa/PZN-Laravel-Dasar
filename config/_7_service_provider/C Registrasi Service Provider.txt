@@ -1,0 +1,26 @@
+Registrasi Service Provider
+● Setelah kita membuat Service Provider, secara default Service Provider tidak diload oleh Laravel
+● Untuk memberi tahu Laravel jika kita ingin menambahkan Service Provider, kita perlu
+menambahkannya pada config di app.php, terdapat key providers yang berisi class-class Service
+Provider yang akan dijalankan oleh Laravel
+
+Mendaftarkan service provider yang tadi dibuat pada file yang berada di config/app.php
+
+ 'providers' => [
+
+        /*
+         * Laravel Framework Service Providers...
+         */
+        ...
+
+        /*
+         * Package Service Providers...
+         */
+
+        /*
+         * Application Service Providers...
+         */ 
+         ...
+        App\Providers\_7_service_provider\_b_registrasi_dependency\BFooBarServiceProvider::class
+
+    ],

@@ -1,0 +1,19 @@
+Service Container
+● Sebelumnya kita sudah mencoba melakukan Dependency Injection secara manual
+● Laravel memiliki fitur Dependency Injection secara otomatis, dan ini wajib dikuasai agar lebih
+mudah membuat aplikasi menggunakan Laravel
+● Di Laravel fitur ini bernama Service Container, dimana Service Container ini merupakan fitur yang
+digunakan untuk manajemen dependencies dan juga dependency injection
+
+
+Application Class
+● Service Container di Laravel direpresentasikan dalam class bernama Application
+● Kita tidak perlu membuat class Application secara manual, karena semua sudah dilakukan secara
+otomatis oleh framework Laravel
+● Di semua project Laravel, hampir disemua bagian terdapat field $app yang merupakan instance
+dari Application
+● https://laravel.com/api/9.x/Illuminate/Foundation/Application.html
+
+
+pada Bab _d_auto_dependency_injection :
+- kita harus membuat constructor agar laravel bisa auto inject object yang diperlukan (auto dependency injection)
