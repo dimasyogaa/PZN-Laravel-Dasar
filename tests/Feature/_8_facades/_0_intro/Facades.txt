@@ -1,0 +1,52 @@
+Facades
+● Sebelumnya kita selalu berinteraksi dengan fitur-fitur Laravel menggunakan dependency injection
+● Namun kadang ada ketika kita tidak bisa mendapatkan object Application, misal kita membuat
+kode di class yang bukan bawaan fitur Laravel, pada kasus seperti ini, Facades sangat membantu
+● Facades adalah class yang menyediakan static akses ke fitur di Service Container atau Application
+● Laravel menyediakan banyak sekali class Facades, kita akan bahas secara bertahap
+● Semua class Facades ada di namespace
+https://laravel.com/api/9.x/Illuminate/Support/Facades.html
+
+Classes :
+App Artisan Auth
+Blade Broadcast Bus
+Cache Config Cookie Crypt 
+DB Date
+Event
+Facade File
+Gate
+Hash Http
+Lang Log
+Mail
+Notification
+ParallelTesting Password
+Queue
+RateLimiter Redirect Redis Request Response Route
+Schema Session Storage
+URL 
+Validator View Vite
+
+
+
+Kapan Menggunakan Facades?
+● Selalu gunakan facades jika memang dibutuhkan saja, jika bisa dilakukan menggunakan
+dependency injection, selalu gunakan dependency injection
+● Terlalu banyak menggunakan Facades akan membuat kita tidak sadar bahwa sebuah class banyak
+sekali memiliki dependency, jika menggunakan dependency injection, kita bisa sadar dengan
+banyaknya parameter yang terdapat di constructor
+
+Facades vs Helper Function
+● Di Laravel, selain Facades ada juga Helper Function, bedanya pada Helper Function, tidak
+dikumpulkan dalam class
+● Contohnya sebelum kita sudah menggunakan Helper Function bernama config() atau env(), itu
+adalah Helper function yang terdapat di Laravel
+● Penggunaan helper function sebenarnya lebih mudah, namun jika dibandingkan dengan Facades,
+maka penggunaan Facades akan lebih mudah dimengerti secara code
+
+Daftar Facades
+● Ada banyak Facades di Laravel, dan seperti dijelaskan nanti pada materi selanjutnya, hampir semuanya banyak
+menggunakan dependency di Service Container
+● Untuk lebih jelas tentang ada Facades apa saja, kita bisa lihat di sini :
+https://laravel.com/docs/9.x/facades#facade-class-reference
+
+
