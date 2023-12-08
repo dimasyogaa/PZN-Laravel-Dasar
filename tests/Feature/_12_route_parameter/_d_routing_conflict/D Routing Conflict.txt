@@ -1,0 +1,36 @@
+Routing Conflict
+● Saat membuat router dengan parameter, kadang terjadi conflict routing
+● Di Laravel jika terjadi conflict tidak akan menyebabkan error, namun Laravel akan
+memprioritaskan router yang pertama kali dibuat
+
+// Routing Conflict : route yang akan di eksekusi yang paling pertama dideklarasikan
+Route::get("/conflict/{name}", function (string $name) {
+    return "Conflict " . $name;
+ });  
+
+// route basic
+Route::get("/conflict/yoga", function () {
+    return "Conflict Yoga Dimas Pambudi";
+});
+
+ketika mengakses /conflict/yoga, 
+maka yang tereksekusi ->  return "Conflict " . $name;, bukan  return "Conflict Yoga Dimas Pambudi";
+outputnya Conflict yoga
+
+best practice menghindari conflict route parameter :
+1. prioritaskan route basic 
+2. letakan route parameter setelah route basic
+
+seperti ini :
+
+// route basic
+Route::get("/conflict/yoga", function () {
+    return "Conflict Yoga Dimas Pambudi";
+});
+
+// route parameter
+Route::get("/conflict/{name}", function (string $name) {
+    return "Conflict " . $name;
+});
+
+

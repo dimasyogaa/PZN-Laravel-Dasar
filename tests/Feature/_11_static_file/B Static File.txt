@@ -1,0 +1,22 @@
+Static File
+● Untuk menambahkan static file, kita bisa dengan mudah menambahkan ke dalam folder public
+● Secara otomatis ketika kita mengakses url ke file static, maka web server akan mencari static file
+terlebih dahulu, jika tidak ada, maka terakhir akan dikirim request nya ke index.php
+
+public/11-static-file :
+index.js
+index.css
+
+Akses :
+
+http://127.0.0.1:8000/11-static-file/index.js
+function helloguys() {
+    return "Hello Guys, ini file javascript dari folder 11-static-file";
+}
+
+
+
+http://127.0.0.1:8000/11-static-file/index.css
+.text {
+    font-family: Arial, Helvetica, sans-serif;
+}

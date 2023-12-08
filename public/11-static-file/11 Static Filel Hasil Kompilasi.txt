@@ -1,0 +1,2 @@
+folder css dan js yang diminified di dalam folder public ini merupakan hasil dari kompilasi menggunakan node js 
+- npm run prod

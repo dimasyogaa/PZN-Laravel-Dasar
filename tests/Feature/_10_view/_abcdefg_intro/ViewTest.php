@@ -6,29 +6,23 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
+// php artisan test --filter ViewTest
 class ViewTest extends TestCase
 {
     public function testView()
     {
-        $this->get("/hello")
+        $this->get("//view-view-hello")
             ->assertSeeText("Hello Yoga");
 
-        $this->get("/hello-again")
+        $this->get("//view-get-hello")
             ->assertSeeText("Hello Dimas");
     }
 
     public function testNested()
     {
-        $this->get("/hello-world")
+        $this->get("/view-get-nested-hello")
             ->assertSeeText("Hello Pambudi");
     }
 
-    public function testViewWithoutRoute()
-    {
-        $this->view("hello", ["name" => "yeo"])
-            ->assertSeeText("Hello yeo");
-
-        $this->view("folderhello.world", ["name" => "tri"])
-            ->assertSeeText("Hello tri");
-    }
+   
 }

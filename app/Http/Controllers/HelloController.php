@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\HelloService;
+use App\Services\_7_serviceprovider\HelloService;
+use App\Services\_7_serviceprovider\HelloServiceIndonesia;
 use Illuminate\Http\Request;
 
 // cara membuat controller di terminal :
-// php artiasan make:controller HelloController
+// php artisan make:controller HelloController
 class HelloController extends Controller
 {
 
@@ -15,13 +16,13 @@ class HelloController extends Controller
 
     // sebelumnya Hello Service telah didaftarkan di service container melalui service provider
     // sehingga otomatis diinject dependencynya oleh laravel dengan service container
-    public function __construct(HelloService $helloService)
+    public function __construct(HelloServiceIndonesia $helloService)
     {
         $this->helloService = $helloService;
     }
 
 
-    /** Reques
+    /** Request
      * Di PHP, biasanya ketika kita ingin mendapatkan detail dari request biasanya kita lakukan menggunakan global variable seperti $_GET, $_POST, dan lain-lain
      * Di Laravel, kita tidak perlu melakukan itu lagi, HTTP Request di bungkus dalam sebuah object dari class Illuminate\Http\Request
      * Dan kita bisa menambahkan Request di parameter function di Router atau di Controller, 

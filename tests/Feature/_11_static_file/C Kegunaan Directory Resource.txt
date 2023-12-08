@@ -1,0 +1,13 @@
+Untuk Apa Directory Resources?
+● Jika diperhatikan, ketika kita membuat project Laravel, terdapat folder resources
+● Selain views, di dalam resources terdapat folder css dan js
+● Kenapa ada file css dan js disana?
+● Jangan bingung dengan ini, ini adalah fitur tambahan Laravel yang memanfaatkan NodeJS, dimana
+dengan NodeJS, kita bisa melakukan kompilasi file css dan js yang terdapat di folder resources agar
+di minify (sehingga ukurannya kecil)
+● Setelah di compile, file js dan css akan tetap di pindahkan ke folder public
+● Jika teman-teman tidak tahu tentang NodeJS, bisa lanjutkan ikuti materi ini tanpa harus praktek
+
+Compile Resource dengan NodeJS
+npm install (jika belum ada package.json)
+npm run prod

@@ -1,0 +1,4 @@
+Melihat Semua Routing
+● Kadang kita ada kebutuhan melihat semua Routing yang ada di aplikasi Laravel kita
+● Untuk melihatnya, kita bisa memanfaatkan file artisan dengan perintah :
+php artisan route:list

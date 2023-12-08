@@ -1,0 +1,8 @@
+Redirect
+● Router juga bisa digunakan untuk melakukan redirect dari satu halaman ke halaman lain
+● Kita bisa menggunakan function Route::redirect(from, to)
+
+Route::redirect(from, to)
+
+// ketika path url /me maka dialihkan ke url path /ydp
+Route::redirect('/me', '/ydp', 301);

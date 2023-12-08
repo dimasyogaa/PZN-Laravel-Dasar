@@ -1,0 +1,9 @@
+Blade Templating
+● Laravel menggunakan template engine yang bernama Blade untuk membuat kode View nya, jadi
+tidak seperti kode PHP biasanya
+● Detail tentang materi Blade Templating, akan kita bahas di kelas terpisah khusus membahas
+tentang Blade Templating
+● Pada materi ini kita hanya akan bahas dasar-dasar nya saja
+● Blade menggunakan extension blade.php sebagai penamaan file nya, misal index.blade.php
+
+

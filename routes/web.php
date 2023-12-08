@@ -46,15 +46,18 @@ Route::fallback(function () {
 // MENAMPILKAN VIEW
 
 // view(uri, template, variabel data dalam bentuk array)
-Route::view("/hello", "hello", ["name" => "Yoga"]);
+Route::view("/view-view-hello", "_10_view.hello", ["name" => "Yoga"]);
 
 // get(uri, callback)
-Route::get("/hello-again", function () {
-    return view("hello", ["name" => "Dimas"]);
+Route::get("/view-get-hello", function () {
+    // view(template, array)
+    return view("_10_view.hello", ["name" => "Dimas"]);
 });
 
-Route::get("/hello-world", function () {
-    return view("folderhello.world", ["name" => "Pambudi"]);
+// Nested View Directory
+Route::get("/view-get-nested-hello", function () {
+     // view(template, array)
+    return view("_10_view._e_nested_view_directory.world", ["name" => "Pambudi"]);
 });
 
 // compile views : php artisan view:cache
@@ -62,6 +65,16 @@ Route::get("/hello-world", function () {
 // menghapus compile views : php artisan view:clear
 
 // ROUTE PARAMETER
+// Base
+Route::get("/base/products/{id}", function ($productId) {
+    return "Product $productId";
+});
+
+Route::get('/base/products/{product}/items/{item}', function ($productId, $itemId) {
+    return "Product $productId, Item $itemId";
+});
+
+//  Named Route
 Route::get("/products/{id}", function ($productId) {
     return "Product $productId";
 })->name("product.detail");
@@ -70,13 +83,24 @@ Route::get('/products/{product}/items/{item}', function ($productId, $itemId) {
     return "Product $productId, Item $itemId";
 })->name("product.item.detail");
 
-// parameter harus angka 
+// Regular Expression Constraints
+// Base - parameter harus angka 
+Route::get("/base/categories/{id}", function (string $categoryId) {
+    return "Categories : " . $categoryId;
+})->where("id", "[0-9]+");
+
+//  Named Route
 Route::get("/categories/{id}", function (string $categoryId) {
     return "Categories : " . $categoryId;
 })->where("id", "[0-9]+")->name("category.detail");
 
-// optional route parameter (?)
+// Optional Route Parameter (?)
 // harus ditambahkan default value
+Route::get("/base/users/{id?}", function (string $userId = "ID Default 42443 - 404 by Yoga Dimas Pambudi") {
+    return "Users : " . $userId;
+});
+
+// Named Route
 Route::get("/users/{id?}", function (string $userId = "404 by Yoga Dimas Pambudi") {
     return "Users : " . $userId;
 })->name("user.detail");
@@ -86,10 +110,12 @@ Route::get("/users/{id?}", function (string $userId = "404 by Yoga Dimas Pambudi
 //     return "Conflict " . $name;
 // }); 
 
+// Route Basic
 Route::get("/conflict/yoga", function () {
     return "Conflict Yoga Dimas Pambudi";
 });
 
+// Route Parameter
 Route::get("/conflict/{name}", function (string $name) {
     return "Conflict " . $name;
 });
@@ -107,6 +133,16 @@ Route::get("/conflict/{name}", function (string $name) {
  */
 
 // Menggunaan Named Route
+Route::get("/named-route/produk/{id}", function ($id) {
+    $link = route("product.detail", ["id" => $id]);
+    return "Link $link";
+});
+
+Route::get("/named-route/produk-redirect/{id}", function ($id) {
+    return redirect()->route("product.detail", ["id" => $id]);
+});
+
+// pzn
 Route::get("/produk/{id}", function ($id) {
     $link = route("product.detail", ["id" => $id]);
     return "Link $link";

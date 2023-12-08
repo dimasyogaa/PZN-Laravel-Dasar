@@ -1,9 +1,31 @@
+APP_URL=http://localhost
+
 Berikut file dan folder yang digunakan pada tutorial seri ini
 app :
     - Data
     - Providers
     - Services
 
-Config :
+bootstrap :
+    - cache (untuk menyimpan cache config, service provider, package dan sebagainya)
+
+config :
     - app.php
         - "provider" = []
+
+routes :
+    - web.php
+
+resources :
+    - views
+    - file css dan js :
+        (fitur tambahan Laravel yang memanfaatkan NodeJS, dimana dengan NodeJS, kita bisa melakukan kompilasi file css dan js yang terdapat di folder resources agar di minify (sehingga ukurannya kecil)
+        Setelah di compile, file js dan css akan tetap di pindahkan ke folder public)
+
+
+storage :
+    - framework
+        - views (menyimpan hasil compile (cache) view)
+
+
+public (menyimpan file static seperti javascript, css, html, gambar dan lain-lain) :

@@ -1,0 +1,9 @@
+Route::get($uri, $callback);
+
+Route::get("/ydp", function () {
+    return "Hello Yoga Dimas Pambudi";
+});
+
+1. jalankan php artisan serve
+2. ketikan url di search field browser http://127.0.0.1:8000/ydp
+3. pada page, tampil teks Hello Yoga Dimas Pambudi 

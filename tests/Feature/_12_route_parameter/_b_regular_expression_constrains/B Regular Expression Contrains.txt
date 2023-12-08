@@ -1,0 +1,14 @@
+Regular Expression Constraints
+● Kadang ada kalanya kita ingin menggunakan Route Parameter, namun parameternya memiliki pola
+tertentu, misal parameternya hanya boleh angka 
+● Pada kasus seperti itu, kita bisa menambahkan regular expression di Route Parameter
+● Caranya kita bisa gunakan function where() setelah pembuatan Route nya
+
+->where("id", "[0-9]+")
+
+// Regular Expression Constraints
+// Base - parameter harus angka 
+Route::get("base/categories/{id}", function (string $categoryId) {
+    return "Categories : " . $categoryId;
+})->where("id", "[0-9]+");
+

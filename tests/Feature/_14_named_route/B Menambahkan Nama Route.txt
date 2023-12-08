@@ -1,0 +1,28 @@
+
+->name("product.detail") = product.detail
+
+Route::get("/products/{id}", function ($productId) {
+    return "Product $productId";
+})->name("product.detail");
+==============================================================================================
+
+->name("product.item.detail") = product.item.detail
+
+Route::get('/products/{product}/items/{item}', function ($productId, $itemId) {
+    return "Product $productId, Item $itemId";
+})->name("product.item.detail");
+==============================================================================================
+
+->name("category.detail") = category.detail
+
+Route::get("/categories/{id}", function (string $categoryId) {
+    return "Categories : " . $categoryId;
+})->where("id", "[0-9]+")->name("category.detail");
+==============================================================================================
+
+->name("user.detail") = user.detail
+
+Route::get("/users/{id?}", function (string $userId = "404 by Yoga Dimas Pambudi") {
+    return "Users : " . $userId;
+})->name("user.detail");
+==============================================================================================

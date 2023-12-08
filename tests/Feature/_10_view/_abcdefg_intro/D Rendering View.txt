@@ -1,0 +1,21 @@
+Rendering View
+● Setelah kita membuat View, selanjutnya untuk me-render (menampilkan) View tersebut di dalam
+Router, kita bisa menggunakan function 
+
+Route::view(uri, template, array) 
+
+atau menggunakan
+
+view(template, array) di dalam closure function Route
+
+● Dimana template adalah nama template, tanpa menggunakan blade.php, dan array berisikan data
+variable yang ingin kita gunakan
+
+// view(uri, template, variabel data dalam bentuk array)
+Route::view("/view-view-hello", "_10_view.hello", ["name" => "Yoga"]);
+
+// get(uri, callback)
+Route::get("/view-get-hello", function () {
+    // view(template, array)
+    return view("_10_view.hello", ["name" => "Dimas"]);
+});
