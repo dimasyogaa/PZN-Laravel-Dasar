@@ -1,6 +1,12 @@
 <?php
 
 use App\Exceptions\ValidationException;
+use App\Http\Controllers\_15_controller\_abcd_pzn\ABBasicHelloController;
+use App\Http\Controllers\_15_controller\_abcd_pzn\CDIHelloController;
+use App\Http\Controllers\_15_controller\_abcd_pzn\CDISingletonHelloController;
+use App\Http\Controllers\_15_controller\_e_experiment\NonSingletonController;
+use App\Http\Controllers\_15_controller\_e_experiment\SingletonController;
+use App\Http\Controllers\_16_request\RequestController;
 use App\Http\Controllers\CookieController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\HelloController;
@@ -56,7 +62,7 @@ Route::get("/view-get-hello", function () {
 
 // Nested View Directory
 Route::get("/view-get-nested-hello", function () {
-     // view(template, array)
+    // view(template, array)
     return view("_10_view._e_nested_view_directory.world", ["name" => "Pambudi"]);
 });
 
@@ -156,11 +162,28 @@ Route::get("/produk-redirect/{id}", function ($id) {
 // Route::get("url", [classController::class, "namaFunctionDidalamController"])
 //  Route::get("/controller/hello", [HelloController::class, "hello"]);
 
+// _ab_basic
+Route::get("/controller/ab-basic", [ABBasicHelloController::class, "basicHello"]);
+
+// _c_dependency_injection di controller
+// no singleton
+Route::get("/controller/c-di/{name}", [CDIHelloController::class, "woi"]);
+
+// singletone
+Route::get("/controller/c-di-singletone/{name}", [CDISingletonHelloController::class, "woi"]);
+
+// experiment
+Route::get('/non-singleton', [NonSingletonController::class, 'indexBind']);
+Route::get('/singleton', [SingletonController::class, 'indexSingletone']);
+
 // REQUEST
-Route::get("/controller/hello/request", [HelloController::class, "request"]);
-
-Route::get("/controller/hello/{name}", [HelloController::class, "hello"]);
-
+// untuk testing
+Route::get("/request", [RequestController::class, "request"]);
+Route::get("/request/param/{name}", [RequestController::class, "request"]);
+// untuk tampil web
+// http://127.0.0.1:8000/web/request?param=1 -untuk menguji full url
+Route::get("web/request", [RequestController::class, "webRequest"]);
+Route::get("web/request/param/{name}", [RequestController::class, "webRequest"]);
 
 // REQUEST INPUT
 Route::get("/input/hello", [InputController::class, "hello"]);

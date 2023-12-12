@@ -181,7 +181,11 @@ return [
         App\Providers\_7_service_provider\_b_registrasi_dependency\BFooBarServiceProvider::class,
         App\Providers\_7_service_provider\_e_binding_singletons_properties\EHelloServiceServiceProvider::class,
         App\Providers\_7_service_provider\_f_deffered_provider\FDefferedServiceProvider::class,
-        App\Providers\_7_service_provider\_f_deffered_provider\FNoDefferedServiceProvider::class
+        App\Providers\_7_service_provider\_f_deffered_provider\FNoDefferedServiceProvider::class,
+
+        // _15_controller
+        App\Providers\_15_controller\ServiceClassSingletonServiceProvider::class,
+        App\Providers\_15_controller\ZExperimentServiceProvider::class
 
     ],
 

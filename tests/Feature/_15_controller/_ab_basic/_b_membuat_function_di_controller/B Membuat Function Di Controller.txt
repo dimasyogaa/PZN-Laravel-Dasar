@@ -1,0 +1,24 @@
+Membuat Function di Controller
+● Sebagai pengganti closure function di Route, kita bisa membuat function di Controller, dan menaruh semua logic web kita di function Controller
+● Selanjutnya, kita bisa meregistrasikan function Controller tersebut ke Route, dengan cara
+mengganti parameter closure di route dengan array yang berisi class Controller dan juga function name nya
+
+=====================================================================================
+ABBasicHelloController.php
+
+<?php
+
+namespace App\Http\Controllers\_15_controller;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
+class ABBasicHelloController extends Controller
+{
+    public function basicHello(): string {
+        return "ABBasicHelloController : hello word from function basicHello()";
+    }
+}
+=====================================================================================
+routes - web.php
+

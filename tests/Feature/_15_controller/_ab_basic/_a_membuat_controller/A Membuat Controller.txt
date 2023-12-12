@@ -1,0 +1,9 @@
+Membuat Controller
+● Untuk membuat Controller, kita bisa membuatnya di namespace App\Http\Controllers, dimana
+class Controller adalah class turunan dari class Illuminate\Routing\Controller
+● Agar lebih mudah, kita bisa menggunakan file artisan untuk membuat controller, caranya dengan
+menggunakan perintah :
+php artisan make:controller NamaController
+
+php artisan make:controller HelloController
+php artisan make:controller _15_controller/ABBasicHelloController

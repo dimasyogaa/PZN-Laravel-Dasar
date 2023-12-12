@@ -1,0 +1,9 @@
+Request Method
+
+● Request juga bisa digunakan untuk mendapatkan informasi HTTP Method
+
+● $request->method() akan mengembalikan HTTP Method
+
+● $request->isMethod(method) digunakan untuk mengecek apakah request memiliki HTTP method sesuai parameter atau tidak  misal $request->isMethod(‘post’)
+
+

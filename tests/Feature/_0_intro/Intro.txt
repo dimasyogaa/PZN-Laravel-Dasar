@@ -5,6 +5,8 @@ app :
     - Data
     - Providers
     - Services
+    - Http 
+        - Controllers
 
 bootstrap :
     - cache (untuk menyimpan cache config, service provider, package dan sebagainya)

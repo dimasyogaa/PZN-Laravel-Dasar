@@ -1,0 +1,7 @@
+Dependency Injection
+● Controller mendukung Dependency Injection, pembuatan object Controller, sebenarnya dilakukan oleh Service Container
+● Dengan demikian, kita bisa menambahkan dependency yang dibutuhkan di Constructor
+Controller, dan secara otomatis Laravel akan mengambil dependency tersebut dari Service Container *tanpa harus mendafarkan di service provider, namun laravel akan selalu membuat object baru dependency tersebut
+
+jika ingin laravel tidak ingin membuat object baru dependency tersebut, maka harus membuat dan mendaftarkan service providernya untuk singletone
+

@@ -1,0 +1,4 @@
+mendaftarkan service provider di app.php (providers)
+
+menghapus cache service
+php artisan clear-compiled
