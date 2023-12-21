@@ -1,0 +1,13 @@
+Mengambil Input
+
+● Untuk mengambil input yang dikirim oleh user, tidak peduli apapun HTTP Method yang digunakan,
+dan dari mana asalnya, entah dari body atau query parameter
+
+● Untuk mengambil input user, kita bisa gunakan method input(key, default) pada Request, dimana
+jika key nya tidak ada, maka akan mengembalikan default value di parameter
+
+ $request->input("namaku", "default")
+
+
+// jika pengiriman request melalui body (bukan query parameter), non aktifkan VerifyCsrfToken pada kernel.php
+ // \App\Http\Middleware\VerifyCsrfToken::class, 

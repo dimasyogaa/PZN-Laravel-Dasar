@@ -1,0 +1,6 @@
+Nested Input
+
+● Salah satu fitur yang powerful di Laravel adalah, kita bisa mengambil input nested hanya dengan menggunakan titik
+
+● Misal jika kita menggunakan $request->input(‘name.first’), 
+maka artinya itu mengambil key first di dalam name, Ini cocok ketika kita kirim request dalam bentuk form atau json

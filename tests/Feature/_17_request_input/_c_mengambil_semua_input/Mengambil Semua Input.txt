@@ -1,0 +1,5 @@
+Mengambil Semua Input
+
+● Untuk mengambil semua input yang terdapat di HTTP Request, baik itu dari query param ataupun body, kita bisa menggunakan method milik Request yaitu input() tanpa parameter 
+
+● Return value dari method input() ini adalah array

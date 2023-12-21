@@ -1,0 +1,10 @@
+Merge Input
+
+● Kadang-kadang kita ingin menambahkan default input value ketika input tersebut tidak dikirim di
+request
+
+● Kita bisa menggunakan method merge(array) untuk menambah input ke request, dan jika ada key
+yang sama, otomatis akan diganti (ditimpa)
+
+● Atau mergeIfMissing(array) untuk menambah input ke request, dan jika input dengan key yang
+sama sudah ada, maka akan dibatalkan (tidak ditimpa, tapi dibatalkan)

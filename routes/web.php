@@ -7,6 +7,14 @@ use App\Http\Controllers\_15_controller\_abcd_pzn\CDISingletonHelloController;
 use App\Http\Controllers\_15_controller\_e_experiment\NonSingletonController;
 use App\Http\Controllers\_15_controller\_e_experiment\SingletonController;
 use App\Http\Controllers\_16_request\RequestController;
+use App\Http\Controllers\_17_request_input\_a_mengambil_input_basic\RequestInputBasicController;
+use App\Http\Controllers\_17_request_input\_b_nested_input\RequestInputNestedController;
+use App\Http\Controllers\_17_request_input\_c_mengambil_semua_input\RequestInputAllInputController;
+use App\Http\Controllers\_17_request_input\_d_mengambil_array_input\RequestInputArrayInputController;
+use App\Http\Controllers\_17_request_input\_f_dynamic_properties\RequestInputDynamicPropertiesController;
+use App\Http\Controllers\_18_input_type\InputTypeController;
+use App\Http\Controllers\_19_filter_request_input\AFilterOnlyExceptController;
+use App\Http\Controllers\_19_filter_request_input\BFilterMergeController;
 use App\Http\Controllers\CookieController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\HelloController;
@@ -186,25 +194,34 @@ Route::get("web/request", [RequestController::class, "webRequest"]);
 Route::get("web/request/param/{name}", [RequestController::class, "webRequest"]);
 
 // REQUEST INPUT
-Route::get("/input/hello", [InputController::class, "hello"]);
-Route::post("/input/hello", [InputController::class, "hello"]);
+// _a_mengambil_input
+// http://127.0.0.1:8000/requestinput?namaku=yoga - HTTP METHOD(get) 
+Route::get("/requestinput", [RequestInputBasicController::class, "mengambilInputHTTPMethod"]); // - HTTP METHOD(get) 
+Route::post("/requestinput", [RequestInputBasicController::class, "mengambilInputHTTPMethod"]); // - HTTP METHOD(post) 
+/** Perbedaan get dan post : jika post, maka tidak bisa diakses melalui url, testing bisa melalui postman dengan form */
+// http://127.0.0.1:8000/requestinput/yoga
+Route::get("/requestinput/path/{namaku}", [RequestInputBasicController::class, "mengambilInputURI"]);
 
-// nested input
-Route::post("/input/hello/first", [InputController::class, "helloFirst"]);
+// _b_nested_input
+Route::post("/requestinput/nested", [RequestInputNestedController::class, "mengambilNestedInput"]);
 
-// mengambil semua input
-Route::post("/input/hello/all", [InputController::class, "helloAll"]);
+// _c_mengambil_semua_input
+Route::post("/requestinput/all", [RequestInputAllInputController::class, "mengambilSemuaInput"]);
 
-// mengambil array input
-Route::post("/input/hello/array", [InputController::class, "helloArray"]);
+// _d_mengambil_array_input
+Route::post("/requestinput/array", [RequestInputArrayInputController::class, "mengambilDataNamaPadaSemuaArrayProducts"]);
 
-// input type
-Route::post("/input/type", [InputController::class, "inputType"]);
+// _e_dynamic_properties
+Route::post("/requestinput/dynamicproperties", [RequestInputDynamicPropertiesController::class, "mengambilDataNamaPadaSemuaArrayProducts"]);
+
+// INPUT TYPE
+Route::post("/inputtype", [InputTypeController::class, "inputType"]);
 
 // Filter Request Input
-Route::post("/input/filter/only", [InputController::class, "filterOnly"]);
-Route::post("/input/filter/except", [InputController::class, "filterExcept"]);
-Route::post("/input/filter/merge", [InputController::class, "filterMerge"]);
+Route::post("/input/filter/only", [AFilterOnlyExceptController::class, "filterOnly"]);
+Route::post("/input/filter/except", [AFilterOnlyExceptController::class, "filterExcept"]);
+Route::post("/input/filter/merge", [BFilterMergeController::class, "filterMerge"]);
+Route::post("/input/filter/mergeifmissing", [BFilterMergeController::class, "filterMergeIfMissing"]);
 
 // File Uplaod
 Route::post("/file/upload", [FileController::class, "upload"])
