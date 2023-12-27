@@ -5,9 +5,9 @@ app :
     - Data
     - Providers
     - Services
-    - Http 
+    - Http
         - Controllers
-        - Kernel.php : 
+        - Kernel.php :
             - $middlewareGroups = ['web' => [ .. //\App\Http\Middleware\VerifyCsrfToken::class,]] // comment untuk keperluan testing di postman pengiriman data melalui body
 
 bootstrap :
@@ -16,6 +16,7 @@ bootstrap :
 config :
     - app.php
         - "provider" = []
+    - filesystems.php : konfigurasi file storage
 
 routes :
     - web.php
@@ -28,8 +29,14 @@ resources :
 
 
 storage :
+    - app (local) -> storage_path('app') :
+        - public -> storage_path('app/public') :
     - framework
         - views (menyimpan hasil compile (cache) view)
 
 
 public (menyimpan file static seperti javascript, css, html, gambar dan lain-lain) :
+    - 11-static-file : isinya hasilnya kompilasi node js yang bersumber dari folder resources
+    - 20-file-storage (tempat symbolic link file disimpan) :
+        - d-storage-link :
+            - disk_public_file.txt

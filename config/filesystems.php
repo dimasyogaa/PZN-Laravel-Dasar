@@ -28,6 +28,7 @@ return [
     |
     */
 
+    // ABC File Storage
     'disks' => [
 
         'local' => [
@@ -69,8 +70,10 @@ return [
     |
     */
 
+    // D Storage Link
+    // harus membuat direktori 20-file-storage manual terlebih dahulu
     'links' => [
-        public_path('storage') => storage_path('app/public'),
+        public_path('20-file-storage/d-storage-link') => storage_path('app/public'),
     ],
 
 ];

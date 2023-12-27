@@ -1,0 +1,3 @@
+http://localhost/nama-direktori/nama_symlink/namafile.extensifile
+
+http://127.0.0.1:8000/20-file-storage/d-storage-link/disk_public_file.txt
