@@ -31,12 +31,16 @@ resources :
 storage :
     - app (local) -> storage_path('app') :
         - public -> storage_path('app/public') :
+            - 21-file-upload
     - framework
         - views (menyimpan hasil compile (cache) view)
 
 
 public (menyimpan file static seperti javascript, css, html, gambar dan lain-lain) :
     - 11-static-file : isinya hasilnya kompilasi node js yang bersumber dari folder resources
-    - 20-file-storage (tempat symbolic link file disimpan) :
-        - d-storage-link :
-            - disk_public_file.txt
+    - 20-21-file-storage-upload (tempat symbolic link file disimpan) :
+        - storage-link :
+            - disk_public_file.txt (file storage)
+            - 21-file-upload :
+                - Yoga.png (unit test)
+                - yogadimas1080p.png (postman - formdata)

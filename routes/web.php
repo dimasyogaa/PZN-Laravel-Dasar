@@ -15,8 +15,8 @@ use App\Http\Controllers\_17_request_input\_f_dynamic_properties\RequestInputDyn
 use App\Http\Controllers\_18_input_type\InputTypeController;
 use App\Http\Controllers\_19_filter_request_input\AFilterOnlyExceptController;
 use App\Http\Controllers\_19_filter_request_input\BFilterMergeController;
+use App\Http\Controllers\_21_file_upload\FileController;
 use App\Http\Controllers\CookieController;
-use App\Http\Controllers\FileController;
 use App\Http\Controllers\HelloController;
 use App\Http\Controllers\InputController;
 use App\Http\Controllers\RedirectController;
@@ -98,7 +98,7 @@ Route::get('/products/{product}/items/{item}', function ($productId, $itemId) {
 })->name("product.item.detail");
 
 // Regular Expression Constraints
-// Base - parameter harus angka 
+// Base - parameter harus angka
 Route::get("/base/categories/{id}", function (string $categoryId) {
     return "Categories : " . $categoryId;
 })->where("id", "[0-9]+");
@@ -122,7 +122,7 @@ Route::get("/users/{id?}", function (string $userId = "404 by Yoga Dimas Pambudi
 // Routing Conflict : route yang akan di eksekusi yang paling pertama dideklarasikan
 // Route::get("/conflict/{name}", function (string $name) {
 //     return "Conflict " . $name;
-// }); 
+// });
 
 // Route Basic
 Route::get("/conflict/yoga", function () {
@@ -139,9 +139,9 @@ Route::get("/conflict/{name}", function (string $name) {
 /**
  * Diatas kita tambahkan named route pada route yang telah kita buat sebelumnnya
  * Di Laravel, kita bisa menamai Route dengan sebuah nama
- * Hal ini bagus ketika kita misal nanti butuh mendapatkan informasi tentang route tersebut, 
+ * Hal ini bagus ketika kita misal nanti butuh mendapatkan informasi tentang route tersebut,
  * misal route url nya, atau melakukan redirect ke route
- * Dengan menambahkan nama di Route nya, kita bisa menggunakan nama route saja, 
+ * Dengan menambahkan nama di Route nya, kita bisa menggunakan nama route saja,
  * tanpa khawatir URL nya akan diubah
  * Untuk menambahkan nama di route, kita cukup gunakan function name()
  */
@@ -195,9 +195,9 @@ Route::get("web/request/param/{name}", [RequestController::class, "webRequest"])
 
 // REQUEST INPUT
 // _a_mengambil_input
-// http://127.0.0.1:8000/requestinput?namaku=yoga - HTTP METHOD(get) 
-Route::get("/requestinput", [RequestInputBasicController::class, "mengambilInputHTTPMethod"]); // - HTTP METHOD(get) 
-Route::post("/requestinput", [RequestInputBasicController::class, "mengambilInputHTTPMethod"]); // - HTTP METHOD(post) 
+// http://127.0.0.1:8000/requestinput?namaku=yoga - HTTP METHOD(get)
+Route::get("/requestinput", [RequestInputBasicController::class, "mengambilInputHTTPMethod"]); // - HTTP METHOD(get)
+Route::post("/requestinput", [RequestInputBasicController::class, "mengambilInputHTTPMethod"]); // - HTTP METHOD(post)
 /** Perbedaan get dan post : jika post, maka tidak bisa diakses melalui url, testing bisa melalui postman dengan form */
 // http://127.0.0.1:8000/requestinput/yoga
 Route::get("/requestinput/path/{namaku}", [RequestInputBasicController::class, "mengambilInputURI"]);
@@ -217,14 +217,14 @@ Route::post("/requestinput/dynamicproperties", [RequestInputDynamicPropertiesCon
 // INPUT TYPE
 Route::post("/inputtype", [InputTypeController::class, "inputType"]);
 
-// Filter Request Input
+// FILTER REQUEST INPUT
 Route::post("/input/filter/only", [AFilterOnlyExceptController::class, "filterOnly"]);
 Route::post("/input/filter/except", [AFilterOnlyExceptController::class, "filterExcept"]);
 Route::post("/input/filter/merge", [BFilterMergeController::class, "filterMerge"]);
 Route::post("/input/filter/mergeifmissing", [BFilterMergeController::class, "filterMergeIfMissing"]);
 
-// File Uplaod
-Route::post("/file/upload", [FileController::class, "upload"])
+// FILE UPLOAD
+Route::post("/fileupload", [FileController::class, "upload"])
     ->withoutMiddleware([VerifyCsrfToken::class]);
 
 // RESPONSE
@@ -285,7 +285,7 @@ Route::get("/middleware1/api", function () {
     return "OK";
 })->middleware([ContohMiddleware::class]);
 
-// menggunakan alias 
+// menggunakan alias
 // Route::get("/middleware/api", function() {
 //     return "OK";
 // })->middleware(["contoh"]);
@@ -315,7 +315,7 @@ Route::get("/middleware1/group", function () {
 //     });
 // });
 
-// Multiple/Combine Route Group 
+// Multiple/Combine Route Group
 Route::middleware(["contoh2:PZN-Codimas,401"])->prefix("/middleware")->group(function () {
     Route::get("/api", function () {
         return "OK";

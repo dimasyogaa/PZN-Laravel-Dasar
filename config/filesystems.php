@@ -71,9 +71,9 @@ return [
     */
 
     // D Storage Link
-    // harus membuat direktori 20-file-storage manual terlebih dahulu
+    // harus membuat direktori 20-21-file-storage-upload manual terlebih dahulu
     'links' => [
-        public_path('20-file-storage/d-storage-link') => storage_path('app/public'),
+        public_path('20-21-file-storage-upload/storage-link') => storage_path('app/public'),
     ],
 
 ];

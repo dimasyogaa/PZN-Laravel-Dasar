@@ -1,0 +1,44 @@
+Error CSRF
+
+● Secara default, Laravel sudah mengamankan semua pengiriman data melalui Form Post
+menggunakan CSRF (Cross Site Request Forgery) token
+
+● Hal menjadikan kita tidak bisa mengirim data Form Post ke aplikasi Laravel kita jika tidak memiliki
+token
+
+● CSRF Token ini diverifikasi oleh Middleware \App\Http\Middleware\VerifyCsrfToken
+
+● Kita bisa men-disable Middleware tersebut di Kernel jika ingin mencoba tanpa CSRF Token
+
+atau bisa dengan route
+Route::post("/fileupload", [FileController::class, "upload"])
+    ->withoutMiddleware([VerifyCsrfToken::class]);
+
+
+<?php
+
+class Kernel extends HttpKernel
+{
+
+    protected $middleware = [
+        ..., ...
+    ];
+
+    protected $middlewareGroups = [
+        'web' => [
+            ...,
+            // \App\Http\Middleware\VerifyCsrfToken::class,
+            ...
+        ],
+
+        'api' => [
+           ...
+        ],
+        ...
+    ];
+
+    protected $routeMiddleware = [
+        ...
+    ];
+}
+

@@ -1,3 +1,5 @@
 http://localhost/nama-direktori/nama_symlink/namafile.extensifile
 
-http://127.0.0.1:8000/20-file-storage/d-storage-link/disk_public_file.txt
+http://127.0.0.1:8000/20-21-file-storage-upload/storage-link/disk_public_file.txt
+
+http://127.0.0.1:8000/20-21-file-storage-upload/storage-link/21-file-upload/yogadimas1080p.png
