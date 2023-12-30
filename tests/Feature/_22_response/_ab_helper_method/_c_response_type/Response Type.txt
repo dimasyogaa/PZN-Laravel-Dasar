@@ -1,0 +1,13 @@
+Response Type
+
+● Sebelumnya kita sudah melakukan response JSON secara manual, sebenarnya Response sudah
+memiliki banyak sekali helper method untuk beberapa jenis response type
+
+● Untuk menampilkan view, kita bisa menggunakan method view(name, data, status, headers)
+
+● Untuk menampilkan JSON, kita bisa menggunakan method json(array, status, headers)
+
+● Untuk menampilkan file, kita bisa menggunakan file(pathToFile, headers)
+
+● Untuk menampilkan file download, kita bisa menggunakan method download(pathToFile, name,
+headers)

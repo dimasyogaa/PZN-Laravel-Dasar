@@ -1,0 +1,9 @@
+HTTP Response Header
+
+● Saat kita membuat Response, kita bisa ubah status dan juga response header
+
+● Kita bisa menggunakan function response(content, status, headers)
+
+● Atau bisa menggunakan method :
+- withHeaders(arrayHeaders)
+- header(key, value)

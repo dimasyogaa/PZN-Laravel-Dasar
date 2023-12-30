@@ -16,11 +16,14 @@ use App\Http\Controllers\_18_input_type\InputTypeController;
 use App\Http\Controllers\_19_filter_request_input\AFilterOnlyExceptController;
 use App\Http\Controllers\_19_filter_request_input\BFilterMergeController;
 use App\Http\Controllers\_21_file_upload\FileController;
+use App\Http\Controllers\_22_response\_a_basic\ResponseBasicController;
+use App\Http\Controllers\_22_response\_b_httpheader\ResponseHttpHeaderController;
+use App\Http\Controllers\_22_response\_c_response_type\ResponseTypeController;
+use App\Http\Controllers\_22_response\ResponseController;
 use App\Http\Controllers\CookieController;
 use App\Http\Controllers\HelloController;
 use App\Http\Controllers\InputController;
 use App\Http\Controllers\RedirectController;
-use App\Http\Controllers\ResponseController;
 use App\Http\Controllers\SessionController;
 use App\Http\Middleware\ContohMiddleware;
 use App\Http\Middleware\VerifyCsrfToken;
@@ -228,18 +231,19 @@ Route::post("/fileupload", [FileController::class, "upload"])
     ->withoutMiddleware([VerifyCsrfToken::class]);
 
 // RESPONSE
-Route::get("/response/hello", [ResponseController::class, "response"]);
+// response basic
+Route::get("/response/basic", [ResponseBasicController::class, "responseBasic"]);
 
 // response header
-Route::get("/response/header", [ResponseController::class, "header"]);
+Route::get("/response/header", [ResponseHttpHeaderController::class, "responseHeader"]);
 
 // response type
 // route group
 Route::prefix("/response/type")->group(function () {
-    Route::get("/view", [ResponseController::class, "responseView"]);
-    Route::get("/json", [ResponseController::class, "responseJson"]);
-    Route::get("/file", [ResponseController::class, "responseFile"]);
-    Route::get("/download", [ResponseController::class, "responseDownload"]);
+    Route::get("/view", [ResponseTypeController::class, "responseView"]);
+    Route::get("/json", [ResponseTypeController::class, "responseJson"]);
+    Route::get("/file", [ResponseTypeController::class, "responseFile"]);
+    Route::get("/download", [ResponseTypeController::class, "responseDownload"]);
 });
 
 
