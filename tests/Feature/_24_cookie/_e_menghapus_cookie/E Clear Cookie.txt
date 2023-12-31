@@ -1,0 +1,8 @@
+Clear Cookie
+
+● Tidak ada cara untuk menghapus cookie
+
+● Namun jika kita ingin menghapus cookie, kita bisa membuat cookie dengan nama yang sama
+dengan value kosong, dan waktu expired secepatnya
+
+● Di Laravel, hal ini bisa kita lakukan dengan menggunakan method withoutCookie(name)

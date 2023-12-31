@@ -20,7 +20,7 @@ use App\Http\Controllers\_22_response\_a_basic\ResponseBasicController;
 use App\Http\Controllers\_22_response\_b_httpheader\ResponseHttpHeaderController;
 use App\Http\Controllers\_22_response\_c_response_type\ResponseTypeController;
 use App\Http\Controllers\_22_response\ResponseController;
-use App\Http\Controllers\CookieController;
+use App\Http\Controllers\_23_cookie\CookieController;
 use App\Http\Controllers\HelloController;
 use App\Http\Controllers\InputController;
 use App\Http\Controllers\RedirectController;

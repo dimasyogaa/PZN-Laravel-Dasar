@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\_23_cookie;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 class CookieController extends Controller
 {
-    public function createCookie(Request $request): Response
+    public function createCookie(): Response
     {
         return response("Hello Cookie")
-            ->cookie("User-Id", "yoga", 1000, "/")
+            ->cookie("User-Id", "yoga", 1000, "/") // 1000 menit
             ->cookie("Is-Member", "true", 1000, "/");
     }
 
@@ -25,7 +26,7 @@ class CookieController extends Controller
         ]);
     }
 
-    public function clearCookie(Request $request): Response
+    public function clearCookie(): Response
     {
         return response("Clear Cookie")
             ->withoutCookie("User-Id")

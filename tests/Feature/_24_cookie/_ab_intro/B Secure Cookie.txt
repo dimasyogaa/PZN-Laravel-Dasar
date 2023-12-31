@@ -1,0 +1,9 @@
+Secure Cookie
+
+● Secara default, cookie yang dibuat di Laravel akan selalu di enkripsi, dan ketika kita membaca
+cookie, secara otomatis akan di dekrip
+
+● Semua hal itu dilakukan otomatis oleh class App\Http\Middleware\EncryptCookies
+
+● Jika misal kita tidak ingin melakukan enkripsi pada sebuah cookie, kita bisa mengubah property
+EncryptCookies yang bernama $except

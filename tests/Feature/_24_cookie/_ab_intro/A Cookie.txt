@@ -1,0 +1,8 @@
+Cookie
+
+● Saat kita membuat HTTP Response, kadang kita perlu membuat cookie.
+
+● Cookie adalah data yang otomatis dikirim ketika kita melakukan HTTP Request juga.
+
+● Jadi kadang Cookie banyak digunakan untuk melakukan management session di aplikasi berbasis
+web.

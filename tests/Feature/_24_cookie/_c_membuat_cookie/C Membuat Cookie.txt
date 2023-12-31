@@ -1,0 +1,15 @@
+Membuat Cookie
+
+● Untuk membuat cookie, di object Response kita bisa gunakan
+
+method cookie(
+    name,
+    value,
+    timeout (menit),
+    path,
+    domain,
+    secure,
+    httpOnly
+)
+
+* secure : harus https atau tidak

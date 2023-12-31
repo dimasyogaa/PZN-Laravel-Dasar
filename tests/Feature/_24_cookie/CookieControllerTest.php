@@ -1,11 +1,11 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\_24_cookie;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
+
+// php artisan test --filter CookieControllerTest
 class CookieControllerTest extends TestCase
 {
     public function testCreateCookie()

@@ -9,6 +9,9 @@ app :
         - Controllers
         - Kernel.php :
             - $middlewareGroups = ['web' => [ .. //\App\Http\Middleware\VerifyCsrfToken::class,]] // comment untuk keperluan testing di postman pengiriman data melalui body
+        - Middleware :
+            - EncryptCookies.php : Jika misal kita tidak ingin melakukan enkripsi pada sebuah cookie, kita bisa mengubah property EncryptCookies yang bernama $except
+
 
 bootstrap :
     - cache (untuk menyimpan cache config, service provider, package dan sebagainya)
