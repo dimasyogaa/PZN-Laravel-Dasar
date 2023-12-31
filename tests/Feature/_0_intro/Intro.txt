@@ -44,3 +44,8 @@ public (menyimpan file static seperti javascript, css, html, gambar dan lain-lai
             - 21-file-upload :
                 - Yoga.png (unit test)
                 - yogadimas1080p.png (postman - formdata)
+
+
+env :
+    - APP_KEY (encryption) : key
+

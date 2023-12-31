@@ -1,0 +1,12 @@
+Membuat Encryption Key
+
+● Key untuk enkripsi hendaknya dibuat secara random dan secara berkala di ubah
+
+● Dan untuk membuat key enkripsi secara random, kita tidak perlu buat secara manual, kita bisa
+menggunakan bantuan file artisan dengan perintah :
+
+php artisan key:generate
+
+● Secara otomatis akan mengisi key APP_KEY di file .env
+
+* jangan digenerate selalu, seperti tiap hari digenerate itu tidak boleh karena mempengaryhi proses fitur cookie pada laravel

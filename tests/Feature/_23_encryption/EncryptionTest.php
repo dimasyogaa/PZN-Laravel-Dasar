@@ -1,14 +1,12 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\_23_encryption;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Crypt;
 use Tests\TestCase;
-
 use function PHPUnit\Framework\assertEquals;
 
+// php artisan test --filter EncryptionTest
 class EncryptionTest extends TestCase
 {
    public function testEncryption() {

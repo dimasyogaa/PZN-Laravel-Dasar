@@ -1,0 +1,5 @@
+Melakukan Enkrip dan Dekrip
+
+● Untuk melakukan enkrip dan dekrip, kita bisa menggunakan Facade Crypt
+
+● https://laravel.com/api/9.x/Illuminate/Support/Facades/Crypt.html
