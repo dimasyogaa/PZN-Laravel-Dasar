@@ -1,0 +1,10 @@
+Redirect
+
+● Sebelumnya kita sudah bahas tentang redirect di materi Route, sekarang kita bahas lebih detail
+tentang redirect
+
+● Redirect itu sendiri di Laravel direpresentasikan dalam response Illuminate\Http\RedirectResponse
+
+● Untuk membuat object redirect, kita bisa menggunakan helper function redirect(to)
+
+

@@ -19,11 +19,11 @@ use App\Http\Controllers\_21_file_upload\FileController;
 use App\Http\Controllers\_22_response\_a_basic\ResponseBasicController;
 use App\Http\Controllers\_22_response\_b_httpheader\ResponseHttpHeaderController;
 use App\Http\Controllers\_22_response\_c_response_type\ResponseTypeController;
-use App\Http\Controllers\_22_response\ResponseController;
-use App\Http\Controllers\_23_cookie\CookieController;
-use App\Http\Controllers\HelloController;
-use App\Http\Controllers\InputController;
-use App\Http\Controllers\RedirectController;
+use App\Http\Controllers\_24_cookie\CookieController;
+use App\Http\Controllers\_25_redirect\_a_basic\RedirectBasicController;
+use App\Http\Controllers\_25_redirect\_bcd_redirect_to\_b_named_route\RedirectToNamedRouteController;
+use App\Http\Controllers\_25_redirect\_bcd_redirect_to\_c_controller_action\RedirectToControllerActionController;
+use App\Http\Controllers\_25_redirect\_bcd_redirect_to\_d_external_domain\RedirectToExternalDomainController;
 use App\Http\Controllers\SessionController;
 use App\Http\Middleware\ContohMiddleware;
 use App\Http\Middleware\VerifyCsrfToken;
@@ -257,32 +257,34 @@ Route::controller(CookieController::class)->group(function () {
 
 
 // REDIRECT
-Route::get("/redirect/from", [RedirectController::class, "redirectFrom"]);
-Route::get("/redirect/to", [RedirectController::class, "redirectTo"]);
+// basic
+Route::get("/redirect/from", [RedirectBasicController::class, "redirectFrom"]);
+Route::get("/redirect/to", [RedirectBasicController::class, "redirectTo"]);
 
 // Redirect To Named Routes
-Route::get('/redirect/name', [\App\Http\Controllers\RedirectController::class, 'redirectName']);
-Route::get('/redirect/name/{name}', [\App\Http\Controllers\RedirectController::class, 'redirectHello'])
-    ->name('redirect-hello');
+Route::get('/redirect/namedroute', [RedirectToNamedRouteController::class, 'redirectName']);
+Route::get('/redirect/namedroute/{name}', [RedirectToNamedRouteController::class, 'redirectHello'])
+    ->name('redirect-to-named-route');
 
 // URL Generation - Named Route
 Route::get("/url/named", function () {
 
     // cara 1
-    // return route("redirect-hello", ["name" => "Dimas"]);
+    // return route("redirect-to-named-route", ["name" => "Dimas"]);
 
     // cara2
-    // return url()->route("redirect-hello", ["name" => "Dimas"]);
+    // return url()->route("redirect-to-named-route", ["name" => "Dimas"]);
 
     // cara 3
-    return URL::route("redirect-hello", ["name" => "Dimas"]);
+    return URL::route("redirect-to-named-route", ["name" => "Dimas"]);
 });
 
 // Redirect To Controller Action
-Route::get('/redirect/action', [\App\Http\Controllers\RedirectController::class, 'redirectAction']);
+Route::get('/redirect/controlleraction', [RedirectToControllerActionController::class, 'redirectAction']);
+Route::get('/redirect/controlleraction/{name}', [RedirectToControllerActionController::class, 'x']);
 
 // Redirect To External Domain
-Route::get('/redirect/away', [\App\Http\Controllers\RedirectController::class, 'redirectAway']);
+Route::get('/redirect/externaldomain', [RedirectToExternalDomainController::class, 'redirectAway']);
 
 // MIDDLEWARE
 Route::get("/middleware1/api", function () {

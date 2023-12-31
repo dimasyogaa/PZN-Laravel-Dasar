@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\_23_cookie;
+namespace App\Http\Controllers\_24_cookie;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;

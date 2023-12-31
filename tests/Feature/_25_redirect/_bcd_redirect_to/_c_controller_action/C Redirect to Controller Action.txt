@@ -1,0 +1,7 @@
+Redirect to Controller Action
+
+● Selain menggunakan Named Routes, kita juga bisa melakukan redirect ke Controller Action
+
+● Secara otomatis nanti Laravel akan mencari path yang sesuai dengan Controller Action tersebut
+
+● Kita bisa menggunakan method action(controller, params) di RedirectResponse
