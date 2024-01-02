@@ -1,0 +1,16 @@
+Membuat Middleware
+
+● Untuk membuat middleware, kita bisa gunakan file artisan dengan perintah :
+
+php artisan make:middleware NamaMiddleware
+
+● Middleware mendukung dependency injection, jadi kita bisa menambahkan dependency yang kita
+butuhkan di constructor jika memang mau
+
+● Middleware sebenarnya sebuah class sederhana, hanya memiliki method handle(request, closure)
+yang akan dipanggil sebelum request masuk ke controller kita
+
+● Jika kita ingin meneruskan ke controller, kita bisa panggil closure(), sedangkan jika tidak, kita bisa
+melakukan manipulasi apapun itu di middleware
+
+● Method handle() di middleware bisa mengembalikan Response

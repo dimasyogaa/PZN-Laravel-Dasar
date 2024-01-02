@@ -1,0 +1,20 @@
+Global Middleware
+
+● Secara default, middleware tidak akan dieksekusi oleh Laravel, kita perlu meregistrasikan
+middleware nya terlebih dahulu ke aplikasi kita
+
+● Kita bisa meregistrasikan middleware dengan beberapa cara
+
+● Pertama kita bisa registrasikan middleware secara global
+
+● Global, artinya middleware akan dieksekusi di semua route, ini kita bisa registrasikan di field
+$middleware di Kernel
+
+
+    protected $middleware = [
+        ...
+
+        // _26_middleware - global
+        IniGlobalMiddleware::class
+
+    ];

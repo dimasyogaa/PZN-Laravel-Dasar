@@ -1,0 +1,29 @@
+Middleware Group
+
+● Kadang kita ingin menggabungkan beberapa middleware dalam satu group, sehingga ketika
+membutuhkannya, kita cukup sebutkan nama group nya saja
+
+● Laravel mendukung hal tersebut, kita bisa buat nama group dan middleware-middleware yang
+tersedia di group tersebut di property $middlewareGroups di kelas Kernel
+
+● Untuk menggunakan middleware group tersebut, kita cukup sebut nama group nya saja
+
+
+    protected $middlewareGroups = [
+        'web' => [
+           ...
+        ],
+
+        'api' => [
+            ...
+        ],
+        ...
+
+
+        // _26_middleware - group
+        'ini-group-middleware' => [
+            IniAMiddleware::class,
+            IniBMiddleware::class,
+            "iniAliasCMiddleware"
+        ]
+    ];

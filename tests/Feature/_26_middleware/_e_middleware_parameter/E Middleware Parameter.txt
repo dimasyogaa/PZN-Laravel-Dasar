@@ -1,0 +1,33 @@
+Middleware Parameter
+
+● Jika kita ingin menambahkan dependency di middleware, kita bisa manfaatkan dependency
+injection di Laravel, namun bagaimana jika kita hanya ingin mengirimkan parameter sederhana
+saja?
+
+● Kita bisa lakukan itu di handle() method,
+
+cukup tambahkan parameter tambahan setelah $next parameter,
+
+dan kita bisa kirim parameter tersebut ketika memanggil middleware nya dengan menggunakan : (titik dua),
+
+lalu jika ada lebih dari satu parameter, gunakan koma sebagai pemisahnya
+
+
+
+         protected $routeMiddleware = [
+               ...
+
+                // for parameter middleware
+                'iniAliasParamMiddleware' => IniParameterMiddleware::class
+
+            ];
+
+
+         protected $middlewareGroups = [
+                ...
+
+                // _26_middleware - parameter
+                'ini-group-parameter-middleware' => [
+                    'iniAliasParamMiddleware:Parameter-PZN-Codimas,401'
+                ]
+            ];

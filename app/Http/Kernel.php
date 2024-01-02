@@ -2,8 +2,13 @@
 
 namespace App\Http;
 
-use App\Http\Middleware\Contoh2Middleware;
-use App\Http\Middleware\ContohMiddleware;
+use App\Http\Middleware\_26_middleware\_c1_global_middleware\IniGlobalMiddleware;
+use App\Http\Middleware\_26_middleware\_c2_route_middleware\IniRouteMiddleware;
+use App\Http\Middleware\_26_middleware\_d_group_middleware\IniAMiddleware;
+use App\Http\Middleware\_26_middleware\_d_group_middleware\IniBMiddleware;
+use App\Http\Middleware\_26_middleware\_d_group_middleware\IniCMiddleware;
+use App\Http\Middleware\_26_middleware\_e_parameter_middleware\IniParameterMiddleware;
+use App\Http\Middleware\_26_middleware\old_other\ContohMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -24,6 +29,9 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         // \App\Http\Middleware\ContohMiddleware::class //jika mau middleware ini global
+
+        // _26_middleware - global
+        // IniGlobalMiddleware::class
     ];
 
     /**
@@ -37,7 +45,7 @@ class Kernel extends HttpKernel
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-             \App\Http\Middleware\VerifyCsrfToken::class,
+            \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
 
@@ -51,6 +59,19 @@ class Kernel extends HttpKernel
         ],
         'pzn-codimas-2' => [
             "contoh2:PZN-Codimas,401"
+        ],
+
+
+        // _26_middleware - group
+        'ini-group-middleware' => [
+            IniAMiddleware::class,
+            IniBMiddleware::class,
+            "iniAliasCMiddleware"
+        ],
+
+        // _26_middleware - parameter
+        'ini-group-parameter-middleware' => [
+            "iniAliasParamMiddleware:Parameter-PZN-Codimas,401"
         ]
     ];
 
@@ -72,7 +93,18 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'contoh' =>  \App\Http\Middleware\ContohMiddleware::class, //alias
-        'contoh2' => \App\Http\Middleware\Contoh2Middleware::class
+        'contoh' => Middleware\_26_middleware\old_other\ContohMiddleware::class, //alias
+        'contoh2' => Middleware\_26_middleware\old_other\Contoh2Middleware::class,
+
+
+        // _26_middleware - route alias
+        'iniAliasRouteMiddleware' => IniRouteMiddleware::class,
+
+        // for alias in group
+        'iniAliasCMiddleware' => IniCMiddleware::class,
+
+        // for parameter middleware
+        'iniAliasParamMiddleware' => IniParameterMiddleware::class
+
     ];
 }

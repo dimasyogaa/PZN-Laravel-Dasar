@@ -25,7 +25,8 @@ use App\Http\Controllers\_25_redirect\_bcd_redirect_to\_b_named_route\RedirectTo
 use App\Http\Controllers\_25_redirect\_bcd_redirect_to\_c_controller_action\RedirectToControllerActionController;
 use App\Http\Controllers\_25_redirect\_bcd_redirect_to\_d_external_domain\RedirectToExternalDomainController;
 use App\Http\Controllers\SessionController;
-use App\Http\Middleware\ContohMiddleware;
+use App\Http\Middleware\_26_middleware\_c2_route_middleware\IniRouteMiddleware;
+use App\Http\Middleware\_26_middleware\old_other\ContohMiddleware;
 use App\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\URL;
@@ -197,6 +198,7 @@ Route::get("web/request", [RequestController::class, "webRequest"]);
 Route::get("web/request/param/{name}", [RequestController::class, "webRequest"]);
 
 // REQUEST INPUT
+// jika ingin test dengan postman gunakan ->withoutMiddleware([VerifyCsrfToken::class]);
 // _a_mengambil_input
 // http://127.0.0.1:8000/requestinput?namaku=yoga - HTTP METHOD(get)
 Route::get("/requestinput", [RequestInputBasicController::class, "mengambilInputHTTPMethod"]); // - HTTP METHOD(get)
@@ -287,6 +289,29 @@ Route::get('/redirect/controlleraction/{name}', [RedirectToControllerActionContr
 Route::get('/redirect/externaldomain', [RedirectToExternalDomainController::class, 'redirectAway']);
 
 // MIDDLEWARE
+// C2 Route Middleware
+Route::get("/route-middleware/api", function () {
+    return "Route Middleware";
+})->middleware([IniRouteMiddleware::class]);
+
+// menggunakan alias
+// Route::get("/route-middleware-alias/api", function() {
+//     return "Route Middleware - Alias";
+// })->middleware(["iniAliasRouteMiddleware"]);
+
+// D Group Middleware
+Route::get("/group-middleware", function () {
+    return "Group Middleware";
+})->middleware(["ini-group-middleware"]); // semua middleware pada grup ini akan digunakan pada route ini
+
+
+// E Parameter Middleware
+// ["alias:argumen1,argumen2"]
+ Route::get("/parameter-middleware/api", function () {
+     return "Parameter Middleware";
+ })->middleware(["iniAliasParamMiddleware:Parameter-PZN-Codimas,401"]);
+
+// ------ pzn
 Route::get("/middleware1/api", function () {
     return "OK";
 })->middleware([ContohMiddleware::class]);

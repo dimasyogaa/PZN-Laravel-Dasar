@@ -1,0 +1,29 @@
+Route Middleware
+
+● Selain global, kita juga bisa registrasikan middleware per route, dimana kita bisa registrasikan
+satu-satu, atau bisa langsung buat group middleware
+
+● Untuk registrasikan satu-satu middleware, kita bisa langsung menggunakan class middleware nya,
+atau membuat alias di $routeMiddleware di kelas Kernel
+
+
+
+ protected $routeMiddleware = [
+        ...
+
+
+        // _26_middleware - route alias
+        "iniAliasRouteMiddleware" => IniRouteMiddleware::class
+
+    ];
+
+
+
+Route::get("/route-middleware/api", function () {
+  return "OK";
+})->middleware([IniRouteMiddleware::class]);
+
+// menggunakan alias
+// Route::get("/route-middleware-alias/api", function() {
+//     return "OK";
+// })->middleware(["iniAliasRouteMiddleware"]);
