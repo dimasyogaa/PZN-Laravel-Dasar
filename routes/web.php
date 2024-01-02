@@ -24,9 +24,9 @@ use App\Http\Controllers\_25_redirect\_a_basic\RedirectBasicController;
 use App\Http\Controllers\_25_redirect\_bcd_redirect_to\_b_named_route\RedirectToNamedRouteController;
 use App\Http\Controllers\_25_redirect\_bcd_redirect_to\_c_controller_action\RedirectToControllerActionController;
 use App\Http\Controllers\_25_redirect\_bcd_redirect_to\_d_external_domain\RedirectToExternalDomainController;
+use App\Http\Controllers\_27_cross_site_request_forgery\FormController;
 use App\Http\Controllers\SessionController;
 use App\Http\Middleware\_26_middleware\_c2_route_middleware\IniRouteMiddleware;
-use App\Http\Middleware\_26_middleware\old_other\ContohMiddleware;
 use App\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\URL;
@@ -311,7 +311,7 @@ Route::get("/group-middleware", function () {
      return "Parameter Middleware";
  })->middleware(["iniAliasParamMiddleware:Parameter-PZN-Codimas,401"]);
 
-// ------ pzn
+/* ------ pzn
 Route::get("/middleware1/api", function () {
     return "OK";
 })->middleware([ContohMiddleware::class]);
@@ -354,17 +354,17 @@ Route::middleware(["contoh2:PZN-Codimas,401"])->prefix("/middleware")->group(fun
     Route::get("/group", function () {
         return "GROUP";
     });
-});
+}); */
 
 // CSRF
-Route::get('/form', [\App\Http\Controllers\FormController::class, 'form']);
-Route::post('/form', [\App\Http\Controllers\FormController::class, 'submitForm']);
+Route::get('/csrf', [FormController::class, 'form']);
+Route::post('/csrf', [FormController::class, 'submitForm']);
 
 // URl Generation - Controller Action
 Route::get("/url/action", function () {
     // return action([\App\Http\Controllers\FormController::class, 'form'], []);
     // return url()->action([\App\Http\Controllers\FormController::class, 'form'], []);
-    return \Illuminate\Support\Facades\URL::action([\App\Http\Controllers\FormController::class, 'form'], []);
+    return \Illuminate\Support\Facades\URL::action([FormController::class, 'form'], []);
 });
 
 // URL GENERATION

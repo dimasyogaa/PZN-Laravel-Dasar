@@ -1,0 +1,6 @@
+AJAX
+
+● Bagaimana jika request yang dilakukan di web nya menggunakan AJAX?
+
+● Selain menggunakan input name _token, untuk mengirim csrf token nya, kita juga bisa
+menggunakan header X-CSRF-TOKEN

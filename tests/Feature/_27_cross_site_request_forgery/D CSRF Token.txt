@@ -1,0 +1,25 @@
+CSRF Token
+
+● Untuk membuat token, Laravel sudah menyediakan function bernama csrf_token() yang digunakan
+untuk mendapatkan token session user
+
+● Setiap kita mengakses website di Laravel, Laravel akan menjalankan session, dan akan menyimpan
+CSRF token
+
+● Jika kita ingin melakukan POST request, maka kita wajib mengirimkan token tersebut di input
+
+● Laravel akan mengecek token melalui input name _token
+
+
+    <form action="/form" method="post">
+
+        <label for="name">
+            <input type="text" name="nama_pengguna">
+        </label>
+
+        <input type="submit" value="Say Hello">
+
+        {{-- name harus _token agar bisa dibaca oleh laravel --}}
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+    </form>

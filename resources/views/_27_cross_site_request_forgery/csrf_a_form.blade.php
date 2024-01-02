@@ -9,15 +9,20 @@
 </head>
 
 <body>
-    <form action="/form" method="post">
+
+    <form action="/csrf" method="post">
+
         <label for="name">
             <input type="text" name="nama_pengguna">
         </label>
+
         <input type="submit" value="Say Hello">
 
         {{-- name harus _token agar bisa dibaca oleh laravel --}}
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
     </form>
+
 </body>
 
 </html>
