@@ -311,7 +311,9 @@ Route::get("/group-middleware", function () {
      return "Parameter Middleware";
  })->middleware(["iniAliasParamMiddleware:Parameter-PZN-Codimas,401"]);
 
-/* ------ pzn
+
+/**
+ * ------ pzn ------
 Route::get("/middleware1/api", function () {
     return "OK";
 })->middleware([ContohMiddleware::class]);
@@ -359,6 +361,55 @@ Route::middleware(["contoh2:PZN-Codimas,401"])->prefix("/middleware")->group(fun
 // CSRF
 Route::get('/csrf', [FormController::class, 'form']);
 Route::post('/csrf', [FormController::class, 'submitForm']);
+
+// ROUTE GROUP
+//-- Route Prefix
+Route::prefix("/route-group/prefix/response/type")->group(function () {
+    Route::get("/view", [ResponseTypeController::class, "responseView"]);
+    Route::get("/json", [ResponseTypeController::class, "responseJson"]);
+    Route::get("/file", [ResponseTypeController::class, "responseFile"]);
+    Route::get("/download", [ResponseTypeController::class, "responseDownload"]);
+});
+
+//-- Route Middleware
+Route::middleware(["iniAliasParamMiddleware:Parameter-PZN-Codimas,401"])
+    ->prefix("/route-group/middleware/api")->group(function () {
+
+        Route::get("/1", function () {
+            return "Parameter Middleware 1";
+        });
+
+        Route::get("/2", function () {
+            return "Parameter Middleware 2";
+        });
+});
+
+//-- Route Controller
+Route::controller(CookieController::class)->group(function () {
+    Route::get("route-group/controller/cookie/set", "createCookie");
+    Route::get("route-group/controller/cookie/get", "getCookie");
+    Route::get("route-group/controller/cookie/clear", "clearCookie");
+});
+
+//-- Multiple Route Group (Combine)
+// Multiple/Combine Route Group
+Route::middleware(["iniAliasParamMiddleware:Parameter-PZN-Codimas,401"])
+    ->prefix("/multiple-route-group/middleware/prefix/api")->group(function () {
+        Route::get("/1", function () {
+            return "Parameter Middleware Prefix 1";
+        });
+
+        Route::get("/2", function () {
+            return "Parameter Middleware Prefix 2";
+        });
+    });
+
+Route::controller(CookieController::class)
+    ->prefix("multiple-route-group/controller/prefix")->group(function () {
+    Route::get("/cookie/set", "createCookie");
+    Route::get("/cookie/get", "getCookie");
+    Route::get("/cookie/clear", "clearCookie");
+});
 
 // URl Generation - Controller Action
 Route::get("/url/action", function () {

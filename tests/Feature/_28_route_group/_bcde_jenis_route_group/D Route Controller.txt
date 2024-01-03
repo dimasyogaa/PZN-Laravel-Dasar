@@ -1,0 +1,12 @@
+Route Controller
+
+● Route controller memungkinkan kita membuat route dengan controller yang sama
+
+● Ini mempermudah ketika kita ingin membuat beberapa route dengan class controller yang sama
+
+
+Route::controller(CookieController::class)->group(function () {
+    Route::get("route-group/controller/cookie/set", "createCookie");
+    Route::get("route-group/controller/cookie/get", "getCookie");
+    Route::get("route-group/controller/cookie/clear", "clearCookie");
+});

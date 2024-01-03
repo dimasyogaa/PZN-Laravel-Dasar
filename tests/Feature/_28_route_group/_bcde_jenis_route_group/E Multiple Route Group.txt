@@ -1,0 +1,22 @@
+Multiple Route Group
+
+● Route juga bisa menggunakan beberapa jenis group, misal kita ingin membuat group dengan nama
+prefix sama, dan middleware sama, maka bisa kita lakukan juga dengan Route di Laravel
+
+Route::middleware(["iniAliasParamMiddleware:Parameter-PZN-Codimas,401"])
+    ->prefix("/multiple-route-group/middleware/prefix/api")->group(function () {
+        Route::get("/1", function () {
+            return "Parameter Middleware Prefix 1";
+        });
+
+        Route::get("/2", function () {
+            return "Parameter Middleware Prefix 2";
+        });
+    });
+
+Route::controller(CookieController::class)
+    ->prefix("multiple-route-group/controller/prefix")->group(function () {
+    Route::get("/cookie/set", "createCookie");
+    Route::get("/cookie/get", "getCookie");
+    Route::get("/cookie/clear", "clearCookie");
+});
