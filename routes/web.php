@@ -25,6 +25,7 @@ use App\Http\Controllers\_25_redirect\_bcd_redirect_to\_b_named_route\RedirectTo
 use App\Http\Controllers\_25_redirect\_bcd_redirect_to\_c_controller_action\RedirectToControllerActionController;
 use App\Http\Controllers\_25_redirect\_bcd_redirect_to\_d_external_domain\RedirectToExternalDomainController;
 use App\Http\Controllers\_27_cross_site_request_forgery\FormController;
+use App\Http\Controllers\_29_url_generation\FormController as UrlGenerationFormController;
 use App\Http\Controllers\SessionController;
 use App\Http\Middleware\_26_middleware\_c2_route_middleware\IniRouteMiddleware;
 use App\Http\Middleware\VerifyCsrfToken;
@@ -268,19 +269,6 @@ Route::get('/redirect/namedroute', [RedirectToNamedRouteController::class, 'redi
 Route::get('/redirect/namedroute/{name}', [RedirectToNamedRouteController::class, 'redirectHello'])
     ->name('redirect-to-named-route');
 
-// URL Generation - Named Route
-Route::get("/url/named", function () {
-
-    // cara 1
-    // return route("redirect-to-named-route", ["name" => "Dimas"]);
-
-    // cara2
-    // return url()->route("redirect-to-named-route", ["name" => "Dimas"]);
-
-    // cara 3
-    return URL::route("redirect-to-named-route", ["name" => "Dimas"]);
-});
-
 // Redirect To Controller Action
 Route::get('/redirect/controlleraction', [RedirectToControllerActionController::class, 'redirectAction']);
 Route::get('/redirect/controlleraction/{name}', [RedirectToControllerActionController::class, 'x']);
@@ -411,17 +399,42 @@ Route::controller(CookieController::class)
     Route::get("/cookie/clear", "clearCookie");
 });
 
-// URl Generation - Controller Action
-Route::get("/url/action", function () {
-    // return action([\App\Http\Controllers\FormController::class, 'form'], []);
-    // return url()->action([\App\Http\Controllers\FormController::class, 'form'], []);
-    return \Illuminate\Support\Facades\URL::action([FormController::class, 'form'], []);
-});
-
 // URL GENERATION
+//-- Current URL
 Route::get("/url/current", function () {
     return URL::full();
 });
+
+//-- URL for Named Route
+Route::get("/url/named", function () {
+
+    // cara 1
+    // return route("redirect-to-named-route", ["name" => "Dimas"]);
+
+    // cara2
+    // return url()->route("redirect-to-named-route", ["name" => "Dimas"]);
+
+    // cara 3
+    return URL::route("redirect-to-named-route", ["name" => "Dimas"]);
+});
+
+//-- URL for Controller Action
+Route::get('url/controller-action/csrf', [UrlGenerationFormController::class, 'form']);
+Route::post('url/controller-action/csrf', [UrlGenerationFormController::class, 'submitForm']);
+
+Route::get("/url/action", function () {
+
+    // cara 1
+    // return action([UrlGenerationFormController::class, 'form'], []);
+
+    // cara 2
+    // return url()->action([UrlGenerationFormController::class, 'form'], []);
+
+    // cara 3
+    return URL::action([UrlGenerationFormController::class, 'form'], []);
+});
+
+
 
 
 // SESSION

@@ -1,0 +1,11 @@
+URL untuk Controller Action
+
+● URLGenerator juga bisa digunakan untuk membuat link menuju controller action
+
+● Laravel secara otomatis akan mencarikan path yang sesuai di route dengan controller action
+tersebut
+
+● Kita bisa menggunakan method
+- action(controllerAction, parameters) (seperti materi di redirect)
+- URL::action(controllerAction, parameters)
+- url()->action(controllerAction, parameters)

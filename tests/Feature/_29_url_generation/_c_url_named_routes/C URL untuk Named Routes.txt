@@ -1,0 +1,8 @@
+URL untuk Named Routes
+
+● URLGenerator juga bisa digunakan untuk membuat link menuju named routes
+
+● Kita bisa menggunakan method
+- route(name, parameters) (seperti di materi redirect)
+- URL::route(name, parameters)
+- url()->route(name, parameters)

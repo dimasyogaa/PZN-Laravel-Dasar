@@ -1,0 +1,11 @@
+URL Generation
+
+● Laravel menyediakan beberapa cara untuk membuat URL di aplikasi kita
+
+● Ini sangat berguna ketika kita butuh membuat link di View atau Response
+
+
+(
+ini materi tentang cara membuat/mendapatkan/menampilkan url dan juga termasuk lanjutan materi redirect
+jadi bagaimana suatu route yang bisa generate url dari route lainnya atau route dirinya sendiri
+)
