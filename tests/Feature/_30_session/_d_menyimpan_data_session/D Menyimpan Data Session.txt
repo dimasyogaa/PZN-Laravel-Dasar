@@ -1,0 +1,19 @@
+Menyimpan Data ke Session
+
+● Ada banyak method yang bisa kita gunakan untuk menyimpan data ke Session
+
+● put(key, value), menyimpan data dengan key dan value -> put("key", [value,...])
+
+● push(key, value), menambah data ke array dengan key dan value
+
+● pull(key, value), mengambil data di array, dan menghapusnya
+
+● increment(key, increment), menaikkan value di session
+
+● decrement(key, decrement), menurunkan value di session
+
+● forget(key), menghapus data di session
+
+● flush(), menghapus semua data di session
+
+● invalidate(), menghapus semua data, dan membuat session baru

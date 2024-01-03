@@ -20,6 +20,7 @@ config :
     - app.php
         - "provider" = []
     - filesystems.php : konfigurasi file storage
+    - session.php : konfigurasi session
 
 routes :
     - web.php
@@ -37,6 +38,7 @@ storage :
             - 21-file-upload
     - framework
         - views (menyimpan hasil compile (cache) view)
+        - sessions
 
 
 public (menyimpan file static seperti javascript, css, html, gambar dan lain-lain) :

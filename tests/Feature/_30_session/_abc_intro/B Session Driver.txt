@@ -1,0 +1,15 @@
+Session Driver
+
+● Laravel mendukung banyak sekali session driver, yaitu tempat session itu disimpan
+
+● file, session disimpan di storage/framework/sessions
+
+● cookie, session disimpan di cookie dan di enkripsi
+
+● database, session disimpan di database
+
+● memcache / redis, session disimpan di in memory database
+
+● dynamodb, session disimpan di amazon dynamidb
+
+● array, session disimpan di in memory array

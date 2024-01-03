@@ -26,7 +26,7 @@ use App\Http\Controllers\_25_redirect\_bcd_redirect_to\_c_controller_action\Redi
 use App\Http\Controllers\_25_redirect\_bcd_redirect_to\_d_external_domain\RedirectToExternalDomainController;
 use App\Http\Controllers\_27_cross_site_request_forgery\FormController;
 use App\Http\Controllers\_29_url_generation\FormController as UrlGenerationFormController;
-use App\Http\Controllers\SessionController;
+use App\Http\Controllers\_30_session\SessionController;
 use App\Http\Middleware\_26_middleware\_c2_route_middleware\IniRouteMiddleware;
 use App\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Support\Facades\Route;
@@ -440,6 +440,7 @@ Route::get("/url/action", function () {
 // SESSION
 Route::get("/session/create", [SessionController::class, "createSession"]);
 Route::get("/session/get", [SessionController::class, "getSession"]);
+Route::get("test/session/get", [SessionController::class, "getSessionForUnitTesting"]);
 
 // ERROR HANDLING
 Route::get("/error/sample", function () {

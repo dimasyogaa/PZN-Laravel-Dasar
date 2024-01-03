@@ -1,11 +1,10 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\_30_session;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
+// php artisan test --filter SessionControllerTest
 class SessionControllerTest extends TestCase
 {
     public function testCreateSession()
@@ -23,6 +22,16 @@ class SessionControllerTest extends TestCase
             "isMember" => true
         ])->get("/session/get")
             ->assertSeeText("Dimas")->assertSeeText(true);
+    }
+
+    public function testGetSessionUnitTesting()
+    {
+        // tidak perlu membuat session di controller, langsung membuat session diunit test dengan withSession
+        $this->withSession([
+            "idPengguna" => "Pambudi",
+            "anggota" => true
+        ])->get("test/session/get")
+            ->assertSeeText("Pambudi")->assertSeeText(true);
     }
 
     public function testGetSessionDefault()

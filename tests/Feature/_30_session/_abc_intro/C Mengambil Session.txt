@@ -1,0 +1,13 @@
+Mengambil Session
+
+● Session direpresentasikan dalam interface Illuminate\Contracts\Session\Session
+
+● https://laravel.com/api/9.x/Illuminate/Contracts/Session/Session.html
+
+● Untuk mendapatkan object Session, ada banyak caranya
+
+● Kita bisa menggunakan method session() dari object Request
+
+● Atau bisa menggunakan helper method session()
+
+● Atau bisa menggunakan facade Session

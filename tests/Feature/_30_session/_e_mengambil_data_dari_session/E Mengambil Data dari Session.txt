@@ -1,0 +1,11 @@
+Mengambil Data dari Session
+
+● Ada banyak method yang bisa kita gunakan untuk mengambil data dari Session
+
+● get(key, default), untuk mengambil data dari session dengan key
+
+● all(), untuk mengambil semua data di session
+
+● has(key), untuk mengecek data di session
+
+● missing(key), untuk mengecek apakah data tidak ada di session
