@@ -11,6 +11,8 @@ app :
             - $middlewareGroups = ['web' => [ .. //\App\Http\Middleware\VerifyCsrfToken::class,]] // comment untuk keperluan testing di postman pengiriman data melalui body
         - Middleware :
             - EncryptCookies.php : Jika misal kita tidak ingin melakukan enkripsi pada sebuah cookie, kita bisa mengubah property EncryptCookies yang bernama $except
+    - Exceptions :
+        -Handler.php : Error Handling
 
 
 bootstrap :

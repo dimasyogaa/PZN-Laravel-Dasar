@@ -2,6 +2,8 @@
 
 namespace App\Exceptions;
 
+use App\Exceptions\_31_error_handling\_f_ignore_report\IgnoreReportValidationException;
+use App\Exceptions\_31_error_handling\_g_rendering_exception\ValidationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Http\Request;
 use Throwable;
@@ -23,6 +25,7 @@ class Handler extends ExceptionHandler
      * @var array<int, class-string<\Throwable>>
      */
     protected $dontReport = [
+        IgnoreReportValidationException::class,
         ValidationException::class
     ];
 
@@ -44,8 +47,10 @@ class Handler extends ExceptionHandler
      */
     public function register()
     {
+
+        // D Error Reporter
         $this->reportable(function (Throwable $e) {
-            // var_dump($e);
+             var_dump($e);
             return false;
         });
         // $this->reportable(function (Throwable $e) {
@@ -55,8 +60,9 @@ class Handler extends ExceptionHandler
         //     var_dump($e);
         // });
 
+        // G Rendering Exception
         $this->renderable(function (ValidationException $exception, Request $request) {
-            return response("Bad Request", 400);
+            return response("Renderable : Bad Request", 400);
         });
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
-use App\Exceptions\ValidationException;
+use App\Exceptions\_31_error_handling\_f_ignore_report\IgnoreReportValidationException;
+use App\Exceptions\_31_error_handling\_g_rendering_exception\ValidationException;
 use App\Http\Controllers\_15_controller\_abcd_pzn\ABBasicHelloController;
 use App\Http\Controllers\_15_controller\_abcd_pzn\CDIHelloController;
 use App\Http\Controllers\_15_controller\_abcd_pzn\CDISingletonHelloController;
@@ -447,13 +448,20 @@ Route::get("/error/sample", function () {
     throw new Exception("Sample Error");
 });
 
+// Manual Error Report
 Route::get('/error/manual', function () {
     report(new Exception("Sample Error"));
     return "OK";
 });
 
-Route::get("/error/validation", function () {
-    throw new ValidationException("Validation Error");
+// Ignore Report
+Route::get("/error/ignore", function () {
+    throw new IgnoreReportValidationException("Ignore Report Validation Error");
+});
+
+// Rendering Exception
+Route::get("/error/render", function () {
+    throw new ValidationException("Render Validation Error");
 });
 
 // HTTP Exception

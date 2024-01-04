@@ -1,0 +1,8 @@
+Ignore Exception
+
+● Kadang ada kasus ketika terjadi error, kita tidak ingin melakukan report error tersebut
+
+● Contoh jika terjadi error validasi, kita tidak perlu melakukan report
+
+● Di Handler, terdapat property $dontReport, yang bisa kita gunakan untuk mendaftarkan jenis
+exception yang tidak mau kita report

@@ -1,0 +1,7 @@
+Error Handling
+
+● Saat kita membuat aplikasi Laravel, secara default Laravel akan membuatkan Error Handling di
+class App\Exceptions\Handler
+
+● Class ini bertanggung jawab menangkap exception yang terjadi di aplikasi kita, dan merender ke
+user
