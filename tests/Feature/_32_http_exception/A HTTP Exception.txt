@@ -1,0 +1,10 @@
+HTTP Exception
+
+● Laravel menyediakan sebuah class exception yang bisa kita gunakan untuk mempermudah ketika
+kita ingin membuat error mengikuti HTTP Status Code
+
+● Class exception tersebut adalah Symfony\Component\HttpKernel\Exception\HttpException
+
+● Laravel juga menyediakan helper function untuk membuat exception tersebut hanya dengan
+menggunakan method abort(statusCode), secara otomatis akan throw HttpException dengan
+status code tersebut

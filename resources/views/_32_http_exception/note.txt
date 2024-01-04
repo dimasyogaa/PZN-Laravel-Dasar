@@ -1,0 +1,5 @@
+ini hanya sebagai petunjuk file apa saja yang digunakan pada materi ini
+
+laravel mendeteksei blade file secara otomatis bukan di folder ini tapi
+
+di folder resources/views/errors/
